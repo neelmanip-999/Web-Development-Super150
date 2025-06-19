@@ -1,0 +1,29 @@
+DOM (Document Object Model) allows us to access and manipulate HTML elements without directly modifying the HTML code.
+
+### Two Steps in DOM Manipulation:
+1. **Selection**: Choosing the element(s) you want to manipulate.
+2. **Manipulation**: Modifying the chosen elements (e.g., changing text, styles, attributes).
+
+### Document as a Web API
+The `document` object is a part of the Web API, which enables JavaScript to interact with and modify the structure of a webpage dynamically.
+
+### Five Ways to Select Elements:
+1. **By Tag Name**: `document.getElementsByTagName("tagname")`
+   - Returns a collection (array-like structure) of elements with the specified tag name.
+   
+2. **By ID**: `document.getElementById("id")`
+   - Returns a single element with the specified ID.
+   
+3. **By Class Name**: `document.getElementsByClassName("classname")`
+   - Returns a collection of elements with the specified class.
+   
+4. **By Query Selector**: `document.querySelector("selector")`
+   - Returns the first occurrence of the specified CSS selector.
+   
+5. **By Query Selector All**: `document.querySelectorAll("selector")`
+   - Returns a collection of all elements that match the specified CSS selector, including multiple occurrences of the same ID.
+
+### DRY vs. WET Principle:
+- **DRY (Don't Repeat Yourself)**: Encourages code reusability by avoiding duplication, making maintenance easier.
+- **WET (Write Everything Twice)**: Opposite of DRY, leading to redundant and less efficient code, making maintenance harder.
+

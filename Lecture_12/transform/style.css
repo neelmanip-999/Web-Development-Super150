@@ -1,0 +1,62 @@
+/* Style for the <h1> element */
+h1 {
+    /* Set the font size to 60px */
+    font-size: 60px;
+    
+    /* Set text color to a shade of blue */
+    color: rgb(9, 121, 233);
+    
+    /* Apply transition to changes on hover (smooth over 2 seconds) */
+    transition: 2s;
+    
+    /* Add space from the top of the page to center the text vertically */
+    margin-top: 450px;
+    
+    /* Apply multiple layers of text shadow for a 3D effect */
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+}
+
+/* Style for the <h1> element on hover */
+h1:hover {
+    /* Uncomment these to try out different transformations */
+    
+    /* Skew the element by 20deg on the X-axis and 15deg on the Y-axis */
+    transform: skew(20deg, 15deg);
+    
+    /* Other transformations you can try: */
+    
+    /* translateX(-400px) moves the element 400px left */
+    /* transform: translateX(-400px); */
+    
+    /* translateY(-100px) moves the element 100px up */
+    /* transform: translateY(-100px); */
+    
+    /* translateZ(200px) moves the element forward along the Z-axis */
+    /* transform: translateZ(200px); */
+    
+    /* Rotate the element around the X-axis by 180 degrees */
+    /* transform: rotateX(180deg); */
+    
+    /* Rotate the element around the Y-axis by 180 degrees */
+    /* transform: rotateY(180deg); */
+    
+    /* Rotate the element around the Z-axis by 3600 degrees */
+    /* transform: rotateZ(3600deg); */
+    
+    /* Scale the element 1.2 times on the X-axis */
+    /* transform: scaleX(1.2); */
+    
+    /* Scale the element 5 times on the Z-axis */
+    /* transform: scaleZ(5); */
+}

@@ -1,0 +1,88 @@
+*{
+    margin: 0;  /* Removes the default margin from all elements to ensure no unwanted space. */
+    padding: 0; /* Removes the default padding from all elements. */
+}
+
+div{
+    display: inline-block;  /* Displays the <div> elements inline but allows them to maintain block-level properties (such as width and height). */
+    width: 200px;  /* Sets the width of each <div> to 200px. */
+    height: 200px; /* Sets the height of each <div> to 200px. */
+    border: 2px solid black;  /* Adds a 2px solid black border around each <div>. */
+    margin: 10px;  /* Adds a 10px margin around each <div> for spacing. */
+}
+
+
+/* static position */
+
+#static #middle{
+    position: static;  
+    /* 'static' is the default positioning; the element is positioned according to the normal document flow. 
+    top, left, bottom, and right properties have no effect on static elements. */
+    
+    top: 100px;    /* No effect in static positioning. */
+    left: 100px;   /* No effect in static positioning. */
+    bottom: 100px; /* No effect in static positioning. */
+    right: 100px;  /* No effect in static positioning. */
+} 
+
+
+/* relative position */
+
+#relative #middle{
+    position: relative;  
+    /* The element is positioned relative to its normal position, allowing for top and left adjustments. */
+    
+    top: 100px;  /* Moves the element 100px down from its normal position. */
+    left: 100px; /* Moves the element 100px to the right from its normal position. */
+}
+
+
+#absolute{
+    position: relative;
+    border: 2px solid black;  
+    /* The #absolute element is relatively positioned with a 2px black border, 
+    but its children can be absolutely positioned relative to this parent. */
+} 
+
+
+/* absolute position */
+
+#absolute #middle{
+    position: absolute;  
+    /* Positions the #middle element absolutely, meaning it is removed from the normal document flow. 
+    It's positioned relative to the nearest positioned ancestor (or the <body> if none exists). */
+    
+    top: 50px;   /* Moves the element 50px down from the top of its containing block. */
+    left: 100px; /* Moves the element 100px to the right from the left edge of its containing block. */
+}
+
+
+ #fixed{
+    position: relative;
+    border: 2px solid black;  
+    /* The #fixed element is positioned relatively with a 2px black border, 
+    meaning its position is relative to its normal flow, but it serves as a reference for fixed positioning. */
+} 
+
+
+/* fixed position */
+
+#fixed #middle{
+    position: fixed;  
+    /* The #middle element is fixed, meaning it will stay in its position relative to the viewport even when scrolling. */
+    
+    top: 0px;  /* The element is pinned to the top of the viewport, staying at 0px from the top. */
+} 
+
+
+#sticky{
+    height: 700px;  /* Sets the height of the #sticky element to 700px. */
+    border: 2px solid black;  /* Adds a 2px solid black border around the #sticky element. */
+}
+
+
+#sticky #middle{
+    position: sticky;  /* The #middle element is "sticky," meaning it behaves like relative positioning until it crosses a specified threshold, then sticks in place. */
+    top: 100px;  /* The element will become fixed at 100px from the top of the viewport when scrolling down. */
+    /* left: 100px; No left adjustment is applied, but this property could control horizontal positioning. */
+}

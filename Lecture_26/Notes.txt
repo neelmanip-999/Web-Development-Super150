@@ -1,0 +1,5 @@
+Js is Synchronous.
+Js + Browser is Asynchromous.
+
+CallBack Hell in JS --> 
+

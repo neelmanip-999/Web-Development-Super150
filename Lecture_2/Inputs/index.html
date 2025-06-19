@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>INPUTS</h1>
+    <!-- <h1> defines the main heading of the page, introducing the section for various types of inputs. -->
+
+    <fieldset>
+        <!-- <fieldset> is used to group related inputs and form elements. It provides a visible border around the grouped elements. -->
+
+        <legend>personal biodata</legend>
+        <!-- <legend> defines a caption for the <fieldset> grouping. It's typically used to give a title to a group of related inputs. -->
+
+        <label for="naam">Name:</label>
+        <!-- <label> element associates a text label with an input field. The 'for' attribute connects the label to the input with the corresponding 'id'. -->
+
+        <input type="text" id="naam" placeholder="ENTER YOUR NAME HERE">
+        <!-- <input type="text"> creates a single-line text input field. The 'placeholder' attribute provides a hint to the user about what to enter. -->
+
+        <br>
+        <!-- <br> creates a line break, moving the next content to a new line. -->
+
+        <label for="pass">Password:</label>
+        <input  type="password" id="pass" placeholder="ENTER YOUR PASSWORD HERE">
+        <!-- <input type="password"> creates a password field, where the entered text is hidden. The placeholder provides an example of what to input. -->
+
+        <br>
+        
+        <label for="email">Email:</label>
+        <input disabled type="email" id="email">
+        <!-- <input type="email"> is specifically for email input. The 'disabled' attribute makes the input field non-editable. -->
+
+        <br>
+
+        <label for="din">Date:</label>
+        <input type="date" id="din">
+        <!-- <input type="date"> creates a date input field with a date picker. -->
+
+        <br>
+
+        <label for="rang">Color:</label>
+        <input type="color" id="rang">
+        <!-- <input type="color"> allows the user to select a color. A color picker is shown to choose from. -->
+
+        <br>
+
+        <label for="samay">Time:</label>
+        <input autofocus type="time" id="samay">
+        <!-- <input type="time"> allows the user to select a time (hours and minutes). The 'autofocus' attribute makes the field automatically active on page load. -->
+
+        <br>
+
+        <label for="no">Phone_Number:</label>
+        <input type="number" min="10" max="30" id="no">
+        <!-- <input type="number"> restricts the input to numeric values. The 'min' and 'max' attributes specify the allowed range of numbers (between 10 and 30 here). -->
+
+        <br>
+
+        <label for="file">File:</label>
+        <input type="file" id="file">
+        <!-- <input type="file"> allows the user to upload a file. -->
+
+        <br>
+
+        <label for="doori">Range:</label>
+        <input type="range" id="doori">
+        <!-- <input type="range"> creates a slider control for selecting a value within a specific range. -->
+
+        <br>
+
+        <label for="line">Telephone:</label>
+        <input type="tel" maxlength="10" id="line">
+        <!-- <input type="tel"> is used for entering phone numbers. The 'maxlength' attribute restricts the input to 10 characters. -->
+
+        <br>
+
+        <label for="tick">checkbox:</label>
+        <input type="checkbox" id="tick">
+        <!-- <input type="checkbox"> creates a checkbox that users can select or deselect. -->
+
+        <br>
+
+        gender:
+        <br><br>
+
+        <label for="radio">male:</label>
+        <input type="radio" name="genderr" id="radio">
+        <!-- <input type="radio"> creates a radio button, allowing the user to select one option from a set. The 'name' attribute groups the radio buttons so only one can be selected. -->
+
+        <br>
+        <label for="radio">female:</label>
+        <input type="radio" name="genderr" id="radio">
+        <!-- Another radio button for gender selection. All the radio buttons have the same 'name' so only one can be selected at a time. -->
+
+        <br>
+        <label for="radio">other:</label>
+        <input type="radio" name="genderr" id="radio">
+        <!-- Third option for gender, allowing the user to select 'other'. -->
+
+        <br>
+
+        <br>
+
+        textarea:
+        <textarea cols="100" rows="2"></textarea>
+        <!-- <textarea> is used for multi-line text input. 'cols' and 'rows' specify the size of the text area. Here, it's 100 columns wide and 2 rows tall. -->
+
+        <br><br>
+
+        select your bday month:
+        <select>
+            <!-- <select> creates a dropdown menu. -->
+
+            <option>jan</option>
+            <option>feb</option>
+            <option>march</option>
+            <option selected>april</option>
+            <!-- <option> defines each option in the dropdown menu. The 'selected' attribute pre-selects the option 'april'. -->
+
+            <option>may</option>
+            <option>june</option>
+            <option>july</option>
+        </select>
+        <!-- This dropdown lets the user select a birth month. 'April' is selected by default. -->
+
+    </fieldset>
+    <!-- The <fieldset> contains all the input elements, grouped under 'personal biodata'. -->
+
+</body>
+</html>

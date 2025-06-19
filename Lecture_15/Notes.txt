@@ -1,0 +1,300 @@
+/*
+==============================
+  INTERPRETED vs COMPILED LANGUAGES
+==============================
+
+// ➤ Compiled Language
+// --------------------
+// In a compiled language, the entire source code is translated into machine code before execution.
+// The compiler generates an executable file (.exe, .out) that can run independently without the original source code.
+// Examples: C, C++, Rust, Go
+
+// Advantages of Compiled Languages:
+// ✅ Faster execution (pre-compiled code)
+// ✅ Better performance for large-scale applications
+
+// Disadvantages of Compiled Languages:
+// ❗ Debugging is slower (requires recompilation after each change)
+// ❗ Platform dependency — different executables may be required for different OS
+
+// -------------------------------------------------------------
+
+// ➤ Interpreted Language
+// -----------------------
+// In an interpreted language, the code is executed line-by-line by an interpreter without producing a separate executable file.
+// Examples: Python, JavaScript, Ruby, PHP
+
+// Advantages of Interpreted Languages:
+// ✅ Easier to debug (errors detected immediately during execution)
+// ✅ More flexible for cross-platform use
+
+// Disadvantages of Interpreted Languages:
+// ❗ Slower execution (line-by-line interpretation)
+// ❗ Requires the interpreter installed on the system for execution
+
+// -------------------------------------------------------------
+
+// ➤ Key Differences Table
+// ------------------------
+// | Feature               | Compiled Language  | Interpreted Language |
+// |-----------------------|--------------------|-----------------------|
+// | **Execution Speed**    | Faster              | Slower                |
+// | **Error Detection**     | After full compile  | During execution      |
+// | **Output File**         | Executable (.exe)   | No separate file      |
+// | **Platform Dependency** | Yes                 | No (Interpreter needed)|
+// | **Examples**            | C, C++, Rust, Go    | Python, JavaScript    |
+
+// -------------------------------------------------------------
+
+// ➤ Hybrid Languages (Both Compilation & Interpretation)
+// -------------------------------------------------------------
+// Some languages combine both compilation and interpretation:
+// - **Java**: Compiles to bytecode, then interpreted by the JVM
+// - **C#**: Compiles to Intermediate Language (IL), then interpreted by CLR
+
+// -------------------------------------------------------------
+
+// ➤ Example for Clarity
+// ---------------------
+// Compiled Language (C Example)
+// -----------------------------
+// #include <stdio.h>
+// int main() {
+//     printf("Hello World\n");
+//     return 0;
+// }
+// Compilation Command: gcc program.c -o program
+// Execution Command: ./program
+
+// Interpreted Language (Python Example)
+// -------------------------------------
+// print("Hello World")
+// Execution Command: python program.py
+
+// -------------------------------------------------------------
+
+// JavaScript Example (Interpreted Language)
+console.log("Hello World"); // Directly runs using Node.js or a browser environment
+
+
+
+
+/*
+==============================
+  BROWSER ARCHITECTURE OVERVIEW
+==============================
+
+// ➤ Layout Engine (Rendering Engine)
+// -----------------------------
+// The layout engine is responsible for converting HTML, CSS, and sometimes JavaScript into a visually rendered web page.
+
+// ➤ How It Works:
+// 1. HTML Parsing → Reads HTML code and builds the DOM (Document Object Model).
+// 2. CSS Parsing → Reads CSS code and creates the CSSOM (CSS Object Model).
+// 3. Render Tree Construction → Combines the DOM and CSSOM to form a visual structure.
+// 4. Layout (Reflow) → Calculates the exact position of each element.
+// 5. Painting → Renders the visual appearance of the elements on the screen.
+// 6. Compositing → Combines multiple layers for the final visual output.
+
+// ➤ Popular Layout Engines:
+// - Blink → Used by Chrome, Edge (new), Opera
+// - WebKit → Used by Safari
+// - Gecko → Used by Firefox
+// - Trident (Legacy) → Used by Internet Explorer
+
+// -------------------------------------------------------------
+
+// ➤ JavaScript Engine
+// -----------------------------
+// The JavaScript engine is responsible for executing JavaScript code in the browser.
+
+// ➤ How It Works:
+// 1. Parsing → Reads JavaScript code and converts it into an Abstract Syntax Tree (AST).
+// 2. Compilation → Optimizes and converts the AST into bytecode or machine code.
+// 3. Execution → Executes the optimized code and handles tasks like DOM manipulation, event handling, etc.
+
+// ➤ Popular JavaScript Engines:
+// - V8 → Used by Chrome, Node.js
+// - SpiderMonkey → Used by Firefox
+// - JavaScriptCore (Nitro) → Used by Safari
+// - Chakra → Used by Edge (Legacy)
+
+// -------------------------------------------------------------
+
+// ➤ Key Differences Table
+// -----------------------------
+// | Feature             | Layout Engine                  | JavaScript Engine             |
+// |---------------------|--------------------------------|-------------------------------|
+// | **Purpose**           | Renders HTML, CSS (UI display) | Executes JavaScript (logic)   |
+// | **Output**            | Visual web page               | Dynamic functionality         |
+// | **Key Process**        | DOM creation, layout, painting | Parsing, compiling, executing |
+// | **Examples**          | Blink, WebKit, Gecko           | V8, SpiderMonkey, JavaScriptCore|
+
+// -------------------------------------------------------------
+
+// ➤ Example for Better Understanding
+// -----------------------------
+// HTML + JavaScript Example
+
+// <!DOCTYPE html>
+// <html>
+// <head>
+//     <title>My Web Page</title>
+//     <style>
+//         body { background-color: lightblue; }
+//         h1 { color: darkblue; }
+//     </style>
+// </head>
+// <body>
+//     <h1 id="title">Welcome!</h1>
+
+//     <script>
+//         document.getElementById("title").innerText = "Hello, World!";
+//     </script>
+// </body>
+// </html>
+
+// -------------------------------------------------------------
+
+// ➤ Step 1: Layout Engine Process
+// ✅ Renders the HTML structure.
+// ✅ Styles the <h1> with dark blue text on a light blue background.
+
+// ➤ Step 2: JavaScript Engine Process
+// ✅ Executes the JavaScript code.
+// ✅ Changes the <h1> text from "Welcome!" to "Hello, World!"
+
+// -------------------------------------------------------------
+
+// 🚀 In Short:
+// - The **Layout Engine** handles **what you see**.  
+// - The **JavaScript Engine** handles **what you interact with**.
+
+
+
+
+/*
+====================================
+  PRIMITIVE & NON-PRIMITIVE DATA TYPES IN JAVASCRIPT
+====================================
+
+// ➤ Primitive Data Types
+// -----------------------------
+// Primitive data types are basic types that hold simple values. They are immutable and stored directly in the memory location.
+
+// ➤ Types of Primitive Data Types:
+// 1. **String** → Represents text data. Example: 'Hello World'
+// 2. **Number** → Represents numeric values. Example: 42, 3.14
+// 3. **Boolean** → Represents true or false values. Example: true, false
+// 4. **Undefined** → A variable declared but not assigned a value. Example: let x;
+// 5. **Null** → Represents an intentional absence of value. Example: let y = null;
+// 6. **Symbol** → Unique and immutable identifier (introduced in ES6). Example: Symbol('id')
+// 7. **BigInt** → Used for large integers that are beyond the safe limit of Number type. Example: 9007199254740991n
+
+// ➤ Example of Primitive Data Types
+let str = "JavaScript";   // String
+let num = 25;              // Number
+let isTrue = true;         // Boolean
+let x;                     // Undefined
+let y = null;              // Null
+let sym = Symbol('id');    // Symbol
+let bigNum = 123456789012345678901234567890n; // BigInt
+
+// -------------------------------------------------------------
+
+// ➤ Non-Primitive (Reference) Data Types
+// ---------------------------------------
+// Non-primitive data types are objects or collections of values. They are mutable and stored by reference in memory.
+
+// ➤ Types of Non-Primitive Data Types:
+// 1. **Object** → Collection of key-value pairs. Example: { name: 'Alice', age: 25 }
+// 2. **Array** → Ordered list of elements. Example: [1, 2, 3, 4, 5]
+// 3. **Function** → A block of reusable code. Example: function greet() { console.log('Hello'); }
+
+// ➤ Example of Non-Primitive Data Types
+let person = { name: "John", age: 30 };  // Object
+let fruits = ["apple", "banana", "orange"]; // Array
+function greet() { console.log("Hello!"); }  // Function
+
+// -------------------------------------------------------------
+
+// ➤ Key Differences Between Primitive & Non-Primitive Data Types
+// -------------------------------------------------------------
+// | Feature             | Primitive Data Types           | Non-Primitive Data Types            |
+// |---------------------|--------------------------------|--------------------------------------|
+// | **Mutability**        | Immutable (cannot be changed) | Mutable (can be modified)            |
+// | **Storage**           | Stored directly in memory     | Stored by reference in memory         |
+// | **Comparison**        | Compared by value             | Compared by reference (object address)|
+// | **Examples**          | String, Number, Boolean, etc. | Object, Array, Function, etc.         |
+
+// -------------------------------------------------------------
+
+// 🚀 In Short:
+// - **Primitive Data Types** → Basic, immutable values.
+// - **Non-Primitive Data Types** → Complex, mutable structures stored by reference.
+*/
+
+
+
+
+
+
+
+/*
+====================================
+  STRING TEMPLATE LITERALS (BACKTICKS) IN JAVASCRIPT
+====================================
+
+// ➤ What are Template Literals?
+// -----------------------------
+// Template literals are string literals that allow embedded expressions using backticks (``).
+// They provide an easier and cleaner way to create dynamic strings.
+
+// ➤ Key Features:
+// 1. **String Interpolation** → Insert variables directly inside strings using `${}`.
+// 2. **Multiline Strings** → Easily write strings with multiple lines.
+// 3. **Expression Evaluation** → Perform operations or call functions inside `${}`.
+
+// -------------------------------------------------------------
+
+// ➤ Example 1: String Interpolation
+const name = "Alice";
+const age = 25;
+console.log(`My name is ${name} and I am ${age} years old.`);
+// Output: My name is Alice and I am 25 years old.
+
+// -------------------------------------------------------------
+
+// ➤ Example 2: Multiline Strings
+const multilineText = `This is the first line.
+This is the second line.
+This is the third line.`;
+console.log(multilineText);
+// Output:
+// This is the first line.
+// This is the second line.
+// This is the third line.
+
+// -------------------------------------------------------------
+
+// ➤ Example 3: Expression Evaluation
+const a = 5;
+const b = 10;
+console.log(`The sum of ${a} and ${b} is ${a + b}`);
+// Output: The sum of 5 and 10 is 15
+
+// -------------------------------------------------------------
+
+// ➤ Example 4: Function Calls Inside Template Literals
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+console.log(`Greeting: ${greet("Bob")}`);
+// Output: Greeting: Hello, Bob!
+
+// -------------------------------------------------------------
+
+// 🚀 In Short:
+// - Use **backticks** (``) instead of quotes for dynamic and multi-line strings.
+// - Insert variables or expressions using **${}** syntax.
+*/

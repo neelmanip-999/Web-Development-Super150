@@ -1,0 +1,80 @@
+<!-- Declare the document type and HTML version -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding set to UTF-8 for international text support -->
+    <meta charset="UTF-8">
+
+    <!-- Ensures compatibility with Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Makes the page responsive to device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown in browser tab -->
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Main heading of the page -->
+    <h1>Get vs Post</h1>
+
+    <!-- Grouping related form fields under a visible box for GET request -->
+    <fieldset>
+        <legend>GET</legend> <!-- Describes what this form section is for -->
+
+        <!-- Form using the GET method: data will appear in the URL query string -->
+        <form action="/user" method="GET">
+            <!-- Label for the 'name' input -->
+            <label for="name">Name: </label>
+            <!-- Input field with name="username", data will be sent as username=value -->
+            <input type="text" name="username" id="name">
+        
+            <!-- Label for the 'age' input -->
+            <label for="age">Age: </label>
+            <!-- Input field with name="age", data sent as age=value -->
+            <input type="text" name="age" id="age">
+
+            <!-- Button to submit the form -->
+            <button type="submit">Submit</button>
+        </form>
+    </fieldset>
+    
+    <!-- Horizontal rule and spacing -->
+    <hr>
+    <br>
+    <hr>
+
+    <!-- Grouping related form fields under a visible box for POST request -->
+    <fieldset>
+        <legend>POST</legend> <!-- Describes what this form section is for -->
+
+        <!-- Form using the POST method: data is sent in the request body -->
+        <form action="/user" method="POST">
+            <!-- Label for the 'name' input -->
+            <label for="name">Name: </label>
+            <!-- Input field with name="username", same as above -->
+            <input type="text" name="username" id="name">
+        
+            <!-- Label for the 'age' input -->
+            <label for="age">Age: </label>
+            <!-- Input field for age -->
+            <input type="text" name="age" id="age">
+
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
+    </fieldset>
+
+</body>
+</html>
+
+
+
+
+
+<!-- ✅ Key Differences Between GET and POST (as seen in the form):
+Feature	             GET	                             POST
+Data visible?	     Yes, in the URL (?username=...)	 No, sent in the body
+Use case	         Reading/fetching data	             Sending/saving sensitive data
+Bookmarkable	     Yes (because data is in URL)	     No 

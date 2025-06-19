@@ -1,0 +1,48 @@
+/* Absolute units */
+ 
+#abs{
+    font-weight: 900;  /* Sets boldness level to maximum (900). */
+    font-family : 'Times New Roman', Times, serif;  
+    /* Uses Times New Roman or fallback fonts. */
+    font-size : 50px;  
+    /* Sets the font size to 50 pixels (absolute size). */
+}
+
+/* Relative units */
+/* % percentage */
+/* 
+.a1 p{
+    font-size: 50%;  /* The font size of the <p> elements inside .a1 is set to 50% of the parent element's font size. */
+
+
+.a1{
+    font-size: 200px;  /* Sets the base font size of .a1 to 200 pixels, which influences the child elements. */
+} */
+
+/* em */
+/* 
+.fs{
+    font-size: 20px;  /* Base font size of .fs set to 20 pixels. */
+
+li{
+    font-size: 2em;  /* Each <li> will have a font size that is 2 times the parent's font size (em is relative to the parent). */
+} */
+
+/* rem */
+/* 
+.fs{
+    font-size: 100px;  /* Base font size of .fs set to 100 pixels. */
+
+li{
+    font-size: 5rem;  /* The font size of <li> elements is set to 5 times the root element's font size (rem is relative to root). */
+} */
+
+/* View height and view width */
+ 
+#pyara{
+    background-color: aqua;  /* Sets background color to aqua. */
+    width: 50vw;  
+    /* The width of #pyara is set to 50% of the viewport's width. */
+    height: 50vh;  
+    /* The height of #pyara is set to 50% of the viewport's height. */
+}

@@ -1,0 +1,43 @@
+.box {
+    background-color: rgb(23, 207, 207); /* Sets the background color to a teal-like shade */
+    width: 400px;  /* Width of the box is 400px */
+    height: 400px; /* Height of the box is 400px */
+    border: 20px solid yellowgreen;  /* Adds a solid border with 20px thickness and yellow-green color */
+
+    /* Uncommenting the below would apply different border styles for each side */
+    /* 
+    border-top: 5px solid red;  // Top border: 5px solid red
+    border-bottom: 3px dashed rgb(239, 227, 11);  // Bottom border: 3px dashed yellow
+    border-left: 5px dashed rgb(22, 22, 19);  // Left border: 5px dashed black
+    border-right: 5px dotted rgb(38, 20, 230);  // Right border: 5px dotted blue
+    */
+
+    /* Margin spacing around the box (outside the border) */
+    /* margin: 100px;  // Would set a 100px margin on all sides */
+
+    /* This would individually set margins for each side */
+    /*
+    margin-left: 100px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    margin-right: 100px;
+    */
+
+    /* Shorthand for margin: 
+       margin: 80px 50px 70px 220px;  // Top: 80px, Right: 50px, Bottom: 70px, Left: 220px */
+
+    /* Guessing the output for shorthand margin: */
+    /* margin: 50px 70px; // Top/Bottom: 50px, Left/Right: 70px */
+    /* margin: 50px 70px 90px; // Top: 50px, Left/Right: 70px, Bottom: 90px */
+
+    /* Padding (inside the box, between content and border) */
+    padding: 130px;  /* Adds 130px of space inside the box on all sides */
+
+    /* Uncommenting below would set padding for each side individually */
+    /*
+    padding-top: 40px;
+    padding-right: 80px;
+    padding-bottom: 60px;
+    padding-left: 120px;
+    */
+}

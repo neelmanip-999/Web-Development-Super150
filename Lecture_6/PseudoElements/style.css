@@ -1,0 +1,53 @@
+div::first-letter{
+    font-size: 50px;
+    color: orange;
+}
+/* <!-- This rule applies a larger font size (50px) and orange color to the first letter of any text inside the <div> element. --> */
+
+p::first-line{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* <!-- This rule changes the font of the first line of any <p> (paragraph) element to a sans-serif typeface. --> */
+
+span::first-letter{
+    font-size: 100px;
+    color: rgb(81, 255, 0);
+}
+/* <!-- This rule makes the first letter of the <span> element 100px in size and colors it a bright green using RGB values. --> */
+
+/* a[href="http://google.com"]::first-letter{
+    color: red;
+    font-size: 100px;
+} */
+/* <!-- Commented code that would style the first letter of the hyperlink pointing to "http://google.com" with a red color and a large font size of 100px. --> */
+
+/* a[href="http://google.com"]::after{
+    content: "hi i am your after pseudo element";
+}
+
+a[href="http://google.com"]::before{
+    content: "hi i am your before pseudo element ";
+} */
+/* <!-- Commented code that would add custom text before ("hi i am your before pseudo element") and after ("hi i am your after pseudo element") any hyperlink pointing to "http://google.com". This text would be rendered visually around the hyperlink. --> */
+
+a[href="http://google.com"]::before{
+    content: '\1F4F1';
+    font-size: 50px;
+} 
+/* <!-- This rule adds a mobile phone emoji (Unicode: U+1F4F1) before any hyperlink that points to "http://google.com" and sets its font size to 50px. --> */
+
+a[href="http://google.com"]::after{
+    content: '\1F32E';
+    font-size: 50px;
+} 
+/* <!-- This rule adds a taco emoji (Unicode: U+1F32E) after any hyperlink that points to "http://google.com" and sets its font size to 50px. --> */
+
+/* a{
+    text-decoration: none;
+} */
+/* <!-- Commented code that would remove the underline from all anchor (<a>) elements if uncommented. --> */
+
+a[href="http://google.com"]{
+    text-decoration: none; 
+}
+/* <!-- This rule removes the underline (text decoration) from only the hyperlink pointing to "http://google.com". --> */

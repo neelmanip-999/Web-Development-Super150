@@ -1,0 +1,17 @@
+/* Styling for the div element */
+div {
+    background-color: aqua; /* Set background color */
+    width: 100px; /* Set width */
+    height: 100px; /* Set height */
+    border: 2px solid brown; /* Set border with brown color */
+
+    /* Applying transition effect */
+    transition-duration: 2s; /* Transition effect duration */
+    transition-property: all; /* Apply transition to all properties */
+}
+
+/* Hover effect for div */
+div:hover {
+    background-color: darkgreen; /* Change background color */
+    border-radius: 50%; /* Make the div circular */
+}

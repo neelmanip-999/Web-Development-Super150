@@ -1,0 +1,19 @@
+toggle --> jo ho rakh ahia uska ulta ho jayega(matlab koi switch chalu hai toh band ho jayega or band hai toh chalu ho jayega)\
+
+childeren can be multiple but parent will be only one.
+
+DOM TREE TRAVERSAL --> we can go anywhere in the dom tree by traversaling it by just selection a single element.
+
+events is a ghatna jiske hone pe kuch hota hai.
+events --> action --> reaction
+
+there are many types of action in js --> if we want to react on any action it will be done by events.
+
+on any event trigger --> a reaction happen --> it triggers a function , and this function contains every details about that event.
+
+
+in DOM we have to call a function means '()' ye lagana padta hai, but we donts have to write this in react.
+
+let say onclick is a event it not only works for button of html , it can also work for different element of html like div, paragraph etc..
+
+// addeventlistener accepts two argument 

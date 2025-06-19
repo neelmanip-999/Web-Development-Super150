@@ -1,0 +1,15 @@
+section p { 
+    color: aqua; /* Sets the text color of all <p> elements inside any <section> to aqua. */
+}
+
+section div p {
+    color: aqua; /* Sets the text color of all <p> elements inside <div> elements that are inside any <section> to aqua. */
+}
+
+article div p { /* Works */
+    color: red; /* Sets the text color of all <p> elements inside <div> elements that are inside any <article> to red. */
+}
+
+article section p { /* Won't work */
+    color: red; /* This rule will not apply because there are no <p> elements inside <section> elements that are direct children of <article>. */
+}

@@ -1,0 +1,219 @@
+How JavaScript Handles Asynchronous Code with the Event Loop
+
+JavaScript is single-threaded, meaning it can only execute one task at a time in the Call Stack. However, with Web APIs and the Event Loop, it efficiently handles asynchronous tasks. Let's break down the key concepts step by step.
+
+Key Concepts:
+1. Call Stack
+2. Web APIs
+3. Callback Queue / Task Queue
+4. Event Loop
+5. Microtask Queue (Promise-related tasks)
+
+Step 1: Call Stack
+- The Call Stack is a data structure that tracks the execution of function calls.
+- JavaScript pushes each function call onto the stack and pops it off once completed.
+
+Example Code:
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Inside setTimeout"), 0);
+console.log("End");
+```
+
+Execution Flow:
+1. "Start" → Added to Call Stack → Executes → Removed from Call Stack
+2. `setTimeout` → Added to Call Stack → Moved to Web API (handled asynchronously)
+3. "End" → Added to Call Stack → Executes → Removed from Call Stack
+4. The Event Loop checks if the Call Stack is empty and moves the `setTimeout` callback to the Call Stack from the Callback Queue.
+
+Output:
+Start
+End
+Inside setTimeout
+
+Step 2: Web APIs
+- Functions like `setTimeout()`, `fetch()`, `addEventListener()`, etc., are handled by Web APIs.
+- These APIs allow non-blocking behavior by performing tasks asynchronously.
+
+Step 3: Callback Queue / Task Queue
+- Once an asynchronous task (like `setTimeout`) is finished, its callback is placed in the Callback Queue.
+- The Event Loop will push these callbacks into the Call Stack only when it's empty.
+
+Step 4: Event Loop
+- The Event Loop is the heart of asynchronous behavior in JavaScript.
+- It constantly checks:
+  - If the Call Stack is empty.
+  - If there are pending tasks in the Callback Queue.
+- When both conditions are true, it moves the next callback from the Queue to the Call Stack.
+
+Step 5: Microtask Queue (Promise-related tasks)
+- Promises and async/await callbacks are prioritized over normal callbacks in the Callback Queue.
+- Microtasks are executed before Task Queue callbacks.
+
+Example Code with Promises:
+```javascript
+console.log("Start");
+
+setTimeout(() => console.log("setTimeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise 1"));
+Promise.resolve().then(() => console.log("Promise 2"));
+
+console.log("End");
+```
+
+Execution Flow:
+1. "Start" → Call Stack → Executes
+2. `setTimeout` → Web API → Callback Queue
+3. "Promise 1" → Microtask Queue
+4. "Promise 2" → Microtask Queue
+5. "End" → Call Stack → Executes
+6. Microtasks execute before setTimeout's callback
+7. "Promise 1" → Call Stack → Executes
+8. "Promise 2" → Call Stack → Executes
+9. "setTimeout" → Call Stack → Executes
+
+Output:
+Start
+End
+Promise 1
+Promise 2
+setTimeout
+
+Summary of Priorities:
+- Call Stack (Highest Priority)
+- Microtask Queue (Promises/async await)
+- Callback Queue (setTimeout, setInterval, etc.)
+
+Visual Flow (Simplified):
+```
+[ JS Code Execution ] 
+      ↓
+[ Call Stack ]
+      ↓
+[ Web API (if async) ]
+      ↓
+[ Microtask Queue ]
+      ↓
+[ Callback Queue ]
+      ↓
+[ Event Loop ]
+```
+
+Key Tip:
+✅ Always remember: Microtasks run before Callback Queue tasks.
+
+
+
+
+
+
+
+
+/************************************************************************************/
+/************************************************************************************/
+
+How JavaScript Handles Asynchronous Code with the Event Loop
+JavaScript is single-threaded, meaning it can only execute one task at a time in the Call Stack. However, with Web APIs and the Event Loop, it efficiently handles asynchronous tasks. Let's break down the key concepts step by step.
+
+Key Concepts
+Call Stack
+Web APIs
+Callback Queue / Task Queue
+Event Loop
+Microtask Queue (Promise-related tasks)
+Step 1: Call Stack
+The Call Stack is a data structure that tracks the execution of function calls.
+JavaScript pushes each function call onto the stack and pops it off once completed.
+Example Code:
+
+javascript
+Copy
+Edit
+console.log("Start");   // Step 1
+setTimeout(() => console.log("Inside setTimeout"), 0);  // Step 3 (Async)
+console.log("End");     // Step 2
+Execution Flow:
+
+"Start" → Added to Call Stack → Executes → Removed from Call Stack
+setTimeout → Added to Call Stack → Moved to Web API (handled asynchronously)
+"End" → Added to Call Stack → Executes → Removed from Call Stack
+The Event Loop checks if the Call Stack is empty and moves the setTimeout callback to the Call Stack from the Callback Queue.
+Output:
+
+sql
+Copy
+Edit
+Start
+End
+Inside setTimeout
+Step 2: Web APIs
+Functions like setTimeout(), fetch(), addEventListener(), etc., are handled by Web APIs.
+These APIs allow non-blocking behavior by performing tasks asynchronously.
+Step 3: Callback Queue / Task Queue
+Once an asynchronous task (like setTimeout) is finished, its callback is placed in the Callback Queue.
+The Event Loop will push these callbacks into the Call Stack only when it's empty.
+Step 4: Event Loop
+The Event Loop is the heart of asynchronous behavior in JavaScript.
+It constantly checks:
+If the Call Stack is empty.
+If there are pending tasks in the Callback Queue.
+When both conditions are true, it moves the next callback from the Queue to the Call Stack.
+Step 5: Microtask Queue (Promise-related tasks)
+Promises and async/await callbacks are prioritized over normal callbacks in the Callback Queue.
+Microtasks are executed before Task Queue callbacks.
+Example Code with Promises:
+
+javascript
+Copy
+Edit
+console.log("Start");
+
+setTimeout(() => console.log("setTimeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise 1"));
+Promise.resolve().then(() => console.log("Promise 2"));
+
+console.log("End");
+Execution Flow:
+
+"Start" → Call Stack → Executes
+setTimeout → Web API → Callback Queue
+"Promise 1" → Microtask Queue
+"Promise 2" → Microtask Queue
+"End" → Call Stack → Executes
+Microtasks execute before setTimeout's callback
+"Promise 1" → Call Stack → Executes
+"Promise 2" → Call Stack → Executes
+"setTimeout" → Call Stack → Executes
+Output:
+
+javascript
+Copy
+Edit
+Start
+End
+Promise 1
+Promise 2
+setTimeout
+Summary of Priorities
+Call Stack (Highest Priority)
+Microtask Queue (Promises/async await)
+Callback Queue (setTimeout, setInterval, etc.)
+Visual Flow (Simplified)
+css
+Copy
+Edit
+[ JS Code Execution ] 
+      ↓
+[ Call Stack ]
+      ↓
+[ Web API (if async) ]
+      ↓
+[ Microtask Queue ]
+      ↓
+[ Callback Queue ]
+      ↓
+[ Event Loop ]
+Key Tip:
+✅ Always remember: Microtasks run before Callback Queue tasks.

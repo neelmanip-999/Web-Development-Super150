@@ -1,0 +1,266 @@
+request was send by user and browser and response was send by server.
+
+middleware --> har baar run karta hai jab bhi appka user ya browser koi bhi request bhejta hai
+middleware runs on every incoming request.
+
+app.use()   || middleware function
+
+
+whenever we send a request to a server it stores two thing the request and the response in the form of object.
+
+everything inside a javascript is an object.
+
+why am i studying methods?
+jo mein request bhejta hun mere server ko usko mera server 2 basis pe samajhta hai
+1. method like grt, post, patch.
+2. path --> uska path kya hai.  like --> '/middleware'  
+
+default path --> '\'
+default method --> get
+
+
+baar baar server restart na karna pade isliye hum node js ke ek package ko use karte hain jiska naam hai "Nodemon".
+Nodemon will automatically restart our server whenever their is any changes
+
+
+
+# Path and Query Prameter --> 
+
+✅ What is a subreddit?
+A subreddit is a community on Reddit focused on a specific topic.
+Each subreddit has its own page, rules, members, and posts.
+Example:
+r/node → a subreddit for discussing Node.js
+r/javascript → a subreddit for JavaScript
+
+
+✅ When it might appear in Node.js:
+You might deal with subreddits in Node.js if you’re building a Reddit scraper, bot, or API client. For example:
+
+Accessing Reddit posts using Reddit API
+
+Using a package like snoowrap to interact with Reddit
+
+Example (Node.js + Reddit API): 
+const snoowrap = require('snoowrap');
+
+const r = new snoowrap({
+  userAgent: 'YourApp',
+  clientId: 'your_client_id',
+  clientSecret: 'your_client_secret',
+  refreshToken: 'your_refresh_token'
+});
+
+// Fetch top posts from r/node
+r.getSubreddit('node').getTop().then(posts => {
+  posts.forEach(post => {
+    console.log(post.title);
+  });
+});
+
+
+In Express (and web development in general), **path parameters** and **query parameters** are two ways of sending information from the client to the server via URLs.
+
+---
+
+## 🔹 1. Path Parameters
+
+### ✅ What is it?
+
+A **path parameter** is a variable part of the URL path, used to **identify a specific resource**.
+
+### 📌 Syntax:
+
+```
+/route/:parameterName
+```
+
+### 📥 Example:
+
+```js
+app.get('/user/:username', (req, res) => {
+    const { username } = req.params;
+    res.send(`Welcome, ${username}`);
+});
+```
+
+### 🌐 Request:
+
+```
+GET /user/neel
+```
+
+### 🧾 Output:
+
+```json
+req.params = { "username": "neel" }
+```
+
+---
+
+## 🔹 2. Query Parameters
+
+### ✅ What is it?
+
+A **query parameter** is appended to the URL after a `?` and is used to **send optional data** (often filters, searches, or sorting options).
+
+### 📌 Syntax:
+
+```
+/route?key1=value1&key2=value2
+```
+
+### 📥 Example:
+
+```js
+app.get('/search', (req, res) => {
+    const { q } = req.query;
+    res.send(`You searched for ${q}`);
+});
+```
+
+### 🌐 Request:
+
+```
+GET /search?q=banana
+```
+
+### 🧾 Output:
+
+```json
+req.query = { "q": "banana" }
+```
+
+---
+
+## 🆚 Summary Table
+
+| Feature           | Path Parameter              | Query Parameter                  |
+| ----------------- | --------------------------- | -------------------------------- |
+| Position          | Part of the URL path        | After `?` in the URL             |
+| Access in Express | `req.params`                | `req.query`                      |
+| Use Case          | Identifying a specific item | Filtering, searching, pagination |
+| Example URL       | `/user/neel`                | `/search?q=banana&limit=10`      |
+
+---
+
+localhost:8080/r/:subreddit
+
+req.params
+
+to avoid making multiple routes we use subreddit , we use req.params object to pick subreddit.
+
+subreddit is a path parameter jisko hum req.params ke object se lete hain taki humko multiple routes na banana pade.
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+**Routing in Express.js** refers to the mechanism by which an application responds to client requests for specific endpoints (paths) using particular HTTP methods such as GET, POST, PUT, or DELETE. Each route defines a URL pattern and a function that is executed when the pattern is matched. Express uses methods like `app.get()`, `app.post()`, `app.put()`, and `app.delete()` to define routes that handle different types of HTTP requests. A route handler takes the request (`req`) and response (`res`) objects and determines what response should be sent back. Routing allows you to structure your application based on how users interact with it—such as visiting pages, submitting forms, or modifying data. Express also supports route parameters (e.g., `/user/:id`) and query strings, enabling dynamic and flexible URL handling. Middleware functions can be added to routes to perform tasks like authentication or logging before the final response is sent. For more complex applications, routing logic can be modularized using `express.Router()` to group routes together by feature or functionality. In summary, routing is the core of any Express.js web server, determining how it reacts to incoming HTTP requests and ensuring the correct logic is applied for each endpoint.
+
+
+
+
+/***************************************************************************************/
+
+for each incoming request you will get the different response.
+
+/***************************************************************************************/
+
+
+Sure! Here’s a detailed explanation of the **types of HTTP requests** and **various HTTP methods**, broken into clear and well-structured paragraphs for better understanding:
+
+---
+
+### 🌐 What is an HTTP Request?
+
+An **HTTP request** is a message sent by a client (usually a browser or an API client like Postman) to a server, asking for some resource or action. When you open a website, fill out a form, or click a link, your browser sends an HTTP request to the server. Each HTTP request contains a **method**, a **URL path**, optional **headers**, and sometimes a **body** (especially in POST/PUT). The server processes the request and responds with an HTTP response.
+
+---
+
+### 🔠 Common HTTP Methods (Verbs)
+
+HTTP methods define **what action** the client wants the server to perform. These are the most commonly used methods in web development:
+
+---
+
+### ✅ 1. GET – **Retrieve Data**
+
+The `GET` method is used to **request data from the server**. It is the most common and is considered safe and idempotent (doesn’t change anything on the server). It is often used to fetch pages, user profiles, or product listings.
+
+```js
+app.get('/users', (req, res) => {
+  res.send('List of users');
+});
+```
+
+---
+
+### 📨 2. POST – **Submit or Create Data**
+
+The `POST` method is used to **send data to the server**, typically to create a new resource like a user, blog post, or form submission. It usually includes a request body containing the data.
+
+```js
+app.post('/users', (req, res) => {
+  res.send('User created');
+});
+```
+
+---
+
+### ✏️ 3. PUT – **Update Existing Data**
+
+The `PUT` method is used to **update an existing resource** completely. The entire updated object is sent in the request body. It is idempotent, meaning calling it multiple times results in the same outcome.
+
+```js
+app.put('/users/1', (req, res) => {
+  res.send('User with ID 1 updated');
+});
+```
+
+---
+
+### 🩹 4. PATCH – **Partially Update Data**
+
+`PATCH` is similar to `PUT`, but it is used to **update part of a resource**, rather than replacing the entire thing. This method is useful when you want to update a single field or property.
+
+```js
+app.patch('/users/1', (req, res) => {
+  res.send('User with ID 1 partially updated');
+});
+```
+
+---
+
+### ❌ 5. DELETE – **Remove Data**
+
+The `DELETE` method is used to **delete a resource** from the server. It is also idempotent, meaning deleting the same resource again has no additional effect.
+
+```js
+app.delete('/users/1', (req, res) => {
+  res.send('User with ID 1 deleted');
+});
+```
+
+---
+
+### 🧪 Other HTTP Methods (Less Common)
+
+* `HEAD`: Similar to GET, but it returns only headers, not the body. Often used to check if a resource exists.
+* `OPTIONS`: Returns the HTTP methods that the server supports for a specific URL. Helpful in CORS (Cross-Origin Resource Sharing) requests.
+
+---
+
+### 🧠 Summary
+
+Each HTTP method represents a **specific intent**: GET for reading, POST for creating, PUT/PATCH for updating, and DELETE for removing. Express.js allows developers to handle all these methods easily using corresponding functions (`app.get`, `app.post`, etc.). Understanding these methods is fundamental to building RESTful APIs, which rely on these verbs to structure CRUD operations (Create, Read, Update, Delete). By using the correct method for each action, your application becomes more predictable, scalable, and aligned with web standards.
+
+---
+
+
+
+
+
+
+
+
+

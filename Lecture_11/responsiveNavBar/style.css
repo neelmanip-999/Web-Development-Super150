@@ -1,0 +1,37 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for the navigation bar */
+nav {
+    background-color: rgb(82, 82, 236); /* Blue background color */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-evenly; /* Evenly distribute items */
+    align-items: center; /* Center items vertically */
+    font-size: 20px; /* Increase font size */
+    min-height: 60px; /* Minimum height of the navbar */
+}
+
+/* Styling for the second unordered list (About, Product, Cart) */
+ul:nth-of-type(2) {
+    display: flex; /* Display items in a row */
+    width: 40%; /* Set width to 40% of the nav */
+    justify-content: space-evenly; /* Distribute items evenly */
+}
+
+/* Styling for list items */
+li {
+    list-style: none; /* Remove bullet points */
+    text-transform: uppercase; /* Convert text to uppercase */
+    margin: 5px; /* Add some spacing */
+}
+
+/* Responsive Design: Adjust layout for small screens */
+@media screen and (max-width: 700px) {
+    nav, ul:nth-of-type(2) {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align text */
+    }
+}

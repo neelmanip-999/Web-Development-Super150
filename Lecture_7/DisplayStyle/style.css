@@ -1,0 +1,39 @@
+h3{
+    display: inline;  
+    /* Sets the <h3> element to inline, which means it will flow in the same line as the surrounding text. 
+    However, inline elements do not respect width or height properties, so the 400px width and height will be ignored. */
+    width: 400px;
+    height: 400px;
+    background-color: forestgreen; /* Background color is set to forest green, but it won't fully apply because of the inline display mode. */
+} 
+
+/* display inline-block */
+ 
+h3{
+    width: 400px;  /* Sets the width of the <h3> element to 400px. */
+    height: 400px; /* Sets the height of the <h3> element to 400px. */
+    background-color: rgb(160, 230, 160);  /* The background color is a light green (rgb value). */
+    display: inline-block;  /* 'inline-block' allows the element to maintain block-level properties (width/height), but it will still sit inline with other elements. */
+}
+
+span{
+    width: 400px;  /* The <span> will also have a width of 400px. */
+    height: 400px; /* The <span> will have a height of 400px. */
+    background-color: rgb(180, 160, 230); /* The background color is a light purple (rgb value). */
+    display: inline-block;  /* 'inline-block' allows the <span> to be sized but still inline with other elements. */
+} */
+
+div{
+    display: inline-block;  /* Each <div> element will behave as an inline-block, keeping it inline while allowing width/height styling. */
+    width: 200px;  /* Sets the width of each <div> to 200px. */
+    height: 200px; /* Sets the height of each <div> to 200px. */
+}
+
+div:nth-of-type(2){
+    /* display: none;  
+    /* This would completely hide the second <div> (it would not take up any space in the layout if uncommented). */
+    
+    visibility: hidden; 
+    /* This makes the second <div> invisible but still takes up space in the layout. 
+    The element is just not visible to the user, but its space remains. */
+}

@@ -1,0 +1,21 @@
+/* Reset default padding and margin */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Styling a specific section if needed */
+#sam {
+    background-color: aquamarine;
+    width: 100%;
+    height: 100vh;  /* Full viewport height */
+    border: 2px solid black;
+}
+
+/* Styling Bootstrap Columns */
+.col {
+    height: 50px;
+    border: 1px solid black;
+    line-height: 50px; /* Centers text vertically */
+}

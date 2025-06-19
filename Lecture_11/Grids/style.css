@@ -1,0 +1,59 @@
+/* Reset margin and padding for all elements */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Parent container - Grid layout */
+.parent{
+    width: 90vw; /* Occupies 90% of the viewport width */
+    height: 90vh; /* Occupies 90% of the viewport height */
+    background-color: bisque; /* Light beige background */
+    border: 2px solid black; /* Black border around the grid */
+    
+    display: grid; /* Enables CSS grid */
+    
+    /* Defines grid columns (2 columns: first is 200px, second is 300px) */
+    grid-template-columns: 200px 300px;
+    
+    /* Defines specific row heights */
+    grid-template-rows: 50px 100px 150px;
+    
+    /* Automatically assigns row height to new elements */
+    /* grid-auto-rows: 50px; */
+    
+    /* Specifies the flow direction (row-wise or column-wise) */
+    /* grid-auto-flow: row; */ /* Default: Adds new items in rows */
+    grid-auto-flow: column; /* Items will be added column-wise */
+    
+    /* Defines default size for automatically added columns */
+    /* grid-auto-columns: 50px; */
+}
+
+/* General styling for each grid item */
+.child{
+    background-color: darkcyan; /* Dark blue-green color */
+    border: 1px solid black; /* Black border for visibility */
+    color: white; /* Text color */
+    font-size: 20px; /* Font size for better visibility */
+    text-align: center; /* Centers text horizontally */
+    display: flex; /* Uses flexbox for centering */
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+}
+
+/* Custom styling for element with ID 'sam' */
+#sam{
+    background-color: brown; /* Brown color for emphasis */
+    
+    /* Spanning across 2 columns, starting from column 3 */
+    grid-column: 3 / span 2; 
+}
+
+/* Custom styling for element with ID 'samarth' */
+#samarth{
+    background-color: rgb(226, 198, 43); /* Yellow shade */
+    
+    /* Spanning across 2 rows, starting from row 2 */
+    grid-row: 2 / span 2;
+}

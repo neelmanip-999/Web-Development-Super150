@@ -1,0 +1,144 @@
+Synchronous --> executing line by line
+
+JS is synchronous, interpreted, weakly-typed, dynamically-typed, single-threaded language.
+
+JS is useless, but a good thing about this is it can interact with browser.
+and can use all the properties of the browser.
+
+
+WebApis --> 1. setTimeout() 2. setInterval, 3. fetch 4. location 5. console
+
+webApis  --> browser
+
+setTimeout(function(){}, 5000); 
+// 1000 milliSecond is 1Second.  
+setTimeout is a higher order function. 
+they all are higher order function.
+
+
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+/****************************************************************************************/
+
+**JavaScript Fundamentals with Web APIs**
+
+### JavaScript Overview
+JavaScript (JS) is:
+- **Synchronous**: Executes code line by line in a sequence.
+- **Interpreted**: Code is directly executed by the JS engine without compilation.
+- **Weakly-typed**: Variables can hold values of different data types without explicit type declaration.
+- **Dynamically-typed**: Data types are determined at runtime.
+- **Single-threaded**: Executes one task at a time in the main thread.
+
+Despite its simplicity, JS can interact with the **browser** through **Web APIs**, enabling powerful web applications.
+
+### Web APIs
+**Web APIs** are provided by the browser, allowing interaction with browser features. Common Web APIs include:
+1. **setTimeout()**
+2. **setInterval()**
+3. **fetch()**
+4. **location**
+5. **console**
+
+### Detailed Explanation with Examples
+
+#### 1. **setTimeout()**
+- Executes a function **once** after a specified delay.
+- Delay is provided in milliseconds (1000 ms = 1 second).
+- It is a **higher-order function**, meaning it takes a function as its argument.
+
+**Example:**
+```javascript
+console.log("Start");
+setTimeout(function() {
+    console.log("Delayed message");
+}, 3000); // Delayed by 3 seconds
+console.log("End");
+```
+**Output:**
+```
+Start
+End
+Delayed message
+```
+
+#### 2. **setInterval()**
+- Executes a function **repeatedly** at specified intervals until stopped.
+
+**Example:**
+```javascript
+let count = 0;
+let intervalId = setInterval(function() {
+    console.log("Count:", ++count);
+    if (count === 5) clearInterval(intervalId); // Stops after 5 counts
+}, 1000);
+```
+**Output:**
+```
+Count: 1
+Count: 2
+Count: 3
+Count: 4
+Count: 5
+```
+
+#### 3. **fetch()**
+- Used to make **HTTP requests** to fetch resources (e.g., data from APIs).
+- Returns a **Promise**.
+
+**Example:**
+```javascript
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response => response.json())
+    .then(data => console.log(data));
+```
+**Output (Sample):**
+```
+{
+    userId: 1,
+    id: 1,
+    title: "Sample Post Title",
+    body: "Sample body content."
+}
+```
+
+#### 4. **location**
+- Provides information about the current URL and allows navigation.
+
+**Example:**
+```javascript
+console.log(location.href); // Shows current URL
+// location.reload();   // Reloads the page
+// location.replace("https://www.example.com"); // Redirects to another site
+```
+
+#### 5. **console**
+- Used for debugging by logging messages, errors, warnings, etc.
+
+**Example:**
+```javascript
+console.log("Hello World");     // General message
+console.error("This is an error"); // Error message
+console.warn("This is a warning"); // Warning message
+```
+**Output:**
+```
+Hello World
+This is an error
+This is a warning
+```
+
+### Conclusion
+JavaScript's ability to interact with the **browser** via **Web APIs** is what makes it powerful. Functions like `setTimeout`, `setInterval`, and `fetch` are essential for asynchronous tasks, improving the user experience in web applications.
+

@@ -1,0 +1,42 @@
+/* ✅ Defining CSS variables */
+:root {
+    --bg-color-red: #dd4d33;      /* Red background */
+    --bg-color-yellow: #d7dd33;   /* Yellow background */
+    --font-size-large: 36px;      /* Large font size */
+}
+
+/* Applying styles to h2, h3, and article elements */
+article, h2, h3 {
+    background-color: var(--bg-color-yellow);  /* Uses yellow background */
+    font-size: var(--font-size-large);         /* Uses large font size */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Applying styles to h4 and h5 */
+h4, h5 {
+    background-color: var(--bg-color-red);  /* Uses red background */
+    font-size: 28px;  /* Slightly smaller than h2/h3 */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* ✅ Adding hover effects */
+article:hover, h2:hover, h3:hover {
+    background-color: var(--bg-color-red);  /* Changes to red on hover */
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+h4:hover, h5:hover {
+    background-color: var(--bg-color-yellow); /* Changes to yellow on hover */
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+/* ✅ Making font size responsive */
+h2, h3, h4, h5 {
+    font-size: clamp(24px, 3vw, 36px);  /* Adjusts based on screen size */
+}

@@ -1,0 +1,36 @@
+/* 
+  Styling for the first image (floated left)
+*/
+.img1 {
+    width: 200px; /* Setting a fixed width for consistency */
+    float: left;  /* Moves the image to the left, allowing text to wrap around it */
+    margin-right: 15px; /* Adds spacing between the image and text */
+}
+
+/* 
+  Styling for the second image (floated right)
+*/
+.img2 {
+    width: 200px; /* Consistent image width */
+    float: right; /* Moves the image to the right, allowing text to wrap around it */
+    margin-left: 15px; /* Adds spacing between the image and text */
+}
+
+/* 
+  Clearing Floats to Avoid Overlapping Issues
+  This ensures that the second and third paragraphs start below both images.
+*/
+p:nth-of-type(2), 
+p:nth-of-type(3) {
+    clear: both; /* Prevents content from appearing beside floated images */
+}
+
+/* 
+  Additional Paragraph Styling for Better Readability
+*/
+p {
+    font-size: 16px; /* Makes text easier to read */
+    line-height: 1.5; /* Adds spacing between lines */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Adds a subtle line between paragraphs */
+}

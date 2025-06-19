@@ -1,0 +1,29 @@
+/* Styling the main container box */
+.box {
+    background-color: lightblue;  /* Light blue background */
+    color: black;                 /* Black text */
+    padding: 20px;                /* Space inside the box */
+    border: 2px solid blue;       /* Border for visibility */
+    
+    /* Setting minimum and maximum width */
+    min-width: 300px;  /* Ensures the box is at least 300px wide */
+    max-width: 1000px; /* Ensures the box does not exceed 1000px */
+    
+    margin: 20px auto;  /* Centers the box */
+    text-align: center;  /* Centers text inside */
+}
+
+/* Another div to demonstrate the effect on different elements */
+.content {
+    background-color: lightcoral; /* Light red background */
+    color: white;                 /* White text */
+    padding: 15px;                /* Padding for spacing */
+    border: 2px solid red;        /* Red border */
+    
+    /* Different min-width and max-width */
+    min-width: 250px;  /* Minimum width 250px */
+    max-width: 800px;  /* Maximum width 800px */
+    
+    margin: 10px auto;  /* Centers the box */
+    text-align: center; /* Centers text inside */
+}

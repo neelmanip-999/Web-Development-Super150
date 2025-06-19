@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tables</h1> <!-- Heading for the table section -->
+
+    <!-- The table element starts here -->
+    <table border="2" cellspacing="10" cellpadding="10" align="left" bgcolor="lightgrey">
+        <!-- border="2": Sets the width of the border around the table and cells to 2 pixels.
+        cellspacing="10": Defines the space between individual table cells to be 10 pixels.
+        align="left": Aligns the table to the left side of the page or container.
+        bgcolor="lightgrey": Sets the background color of the table to light grey. -->
+        <!-- Table Header starts -->
+        <thead>
+            <tr>
+                <th>Period/Days</th> <!-- Table header cell for Period/Days -->
+                <th>Mon</th> <!-- Table header cell for Monday -->
+                <th>Tues</th> <!-- Table header cell for Tuesday -->
+                <th>Wed</th> <!-- Table header cell for Wednesday -->
+                <th>Thurs</th> <!-- Table header cell for Thursday -->
+                <th>Fri</th> <!-- Table header cell for Friday -->
+            </tr>
+        </thead>
+        <!-- Table Body starts -->
+        <tbody>
+            <tr>
+                <td>1</td> <!-- Table data cell for period 1 -->
+                <td rowspan="3">MATHS</td> <!-- MATHS spans 3 rows -->
+                <td rowspan="3">ECO</td> <!-- ECO spans 3 rows -->
+                <td>PHYSICS</td> <!-- PHYSICS in this specific period -->
+                <td>CHEMISTRY</td> <!-- CHEMISTRY in this specific period -->
+                <td rowspan="4">HTML</td> <!-- HTML spans 4 rows -->
+            </tr>
+            <tr>
+                <td>2</td> <!-- Table data cell for period 2 -->
+                <!-- <td>MATHS</td> commented out -->
+                <!-- <td>ECO</td> commented out -->
+                <td>CHEMISTRY</td> <!-- CHEMISTRY in this specific period -->
+                <td>PHYSICS</td> <!-- PHYSICS in this specific period -->
+                <!-- <td>HTML</td> commented out -->
+            </tr>
+            <tr>
+                <td>3</td> <!-- Table data cell for period 3 -->
+                <!-- <td>MATHS</td> commented out -->
+                <!-- <td>ECO</td> commented out -->
+                <td colspan="2">PHYSICS</td> <!-- PHYSICS spans 2 columns in this period -->
+                <!-- <td>PHYSICS</td> commented out -->
+                <!-- <td>HTML</td> commented out -->
+            </tr>
+            <tr>
+                <td>4</td> <!-- Table data cell for period 4 -->
+                <td>ECO</td> <!-- ECO in this specific period -->
+                <td>MATHS</td> <!-- MATHS in this specific period -->
+                <td colspan="2">CHEMISTRY</td> <!-- CHEMISTRY spans 2 columns in this period -->
+                <!-- <td>CHEMISTRY</td> commented out -->
+                <!-- <td>HTML</td> commented out -->
+            </tr>
+            <tr>
+                <td>5</td> <!-- Table data cell for period 5 -->
+                <td>MATHS</td> <!-- MATHS in this specific period -->
+                <td>ECO</td> <!-- ECO in this specific period -->
+                <td>PHYSICS</td> <!-- PHYSICS in this specific period -->
+                <td>HTML</td> <!-- HTML in this specific period -->
+                <td>CHEMISTRY</td> <!-- CHEMISTRY in this specific period -->
+            </tr>
+        </tbody>
+        <!-- Table Footer starts -->
+        <tfoot>
+            <tr>
+                <th colspan="6">time table for 10th standard</th> <!-- Footer that spans 6 columns -->
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

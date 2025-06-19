@@ -1,0 +1,294 @@
+In **Express.js**, **static files** refer to **files that do not change dynamically** and are **served directly to the client** without any processing by the server.
+
+### 🔹 What are Static Files?
+
+Static files typically include:
+
+* **HTML files**
+* **CSS stylesheets**
+* **JavaScript files (client-side)**
+* **Images** (JPEG, PNG, SVG, etc.)
+* **Fonts**
+* **Videos or other media files**
+
+---
+
+### 🔹 Why Use Static Files in Express?
+
+To serve files such as:
+
+* A home page (`index.html`)
+* CSS for styling
+* Client-side JavaScript for interactivity
+* Logos, icons, etc.
+
+---
+
+### 🔹 How to Serve Static Files in Express?
+
+Use `express.static()` middleware.
+
+#### ✅ Example:
+
+```js
+const express = require('express');
+const app = express();
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+```
+
+#### 📁 Folder Structure:
+
+```
+project-folder/
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── app.js
+```
+
+Now, if you go to `http://localhost:3000/index.html`, it will serve `public/index.html`.
+
+---
+
+### 🔹 Behind the Scenes
+
+`express.static('public')` tells Express:
+
+> “If a user requests something like `/style.css`, look inside the `public` folder and return it if it exists.”
+
+---
+
+### 🔹 You Can Use Multiple Static Directories
+
+```js
+app.use(express.static('public'));
+app.use(express.static('assets'));
+```
+
+---
+
+### 🔹 Set a Virtual Path Prefix (Optional)
+
+```js
+app.use('/static', express.static('public'));
+```
+
+Now access static files using: `http://localhost:3000/static/style.css`
+
+---
+
+### ✅ Summary:
+
+* Static files = public, unchanging files served directly to the browser
+* Use `express.static()` to expose them
+* Great for websites with frontend files
+
+Let me know if you want to try an example with EJS or React too.
+
+
+
+
+
+
+
+In **Express.js**, `app.set()` is used to **configure application settings**. These settings control how your Express app behaves.
+
+---
+
+### 🔹 Syntax:
+
+```js
+app.set(settingName, value)
+```
+
+* `settingName`: a string representing the name of the setting (e.g., `'view engine'`)
+* `value`: the value to assign to that setting
+
+---
+
+### 🔹 Common Use Cases of `app.set()`
+
+#### ✅ 1. Set the **view engine** (for templating)
+
+```js
+app.set('view engine', 'ejs');
+```
+
+> This tells Express to use EJS to render views (`res.render()` will now look for `.ejs` files).
+
+#### ✅ 2. Set the **views directory** (where template files are stored)
+
+```js
+app.set('views', path.join(__dirname, 'views'));
+```
+
+> Default is `/views`, but you can change the location.
+
+#### ✅ 3. Set your own **custom setting**
+
+```js
+app.set('appName', 'My Express App');
+console.log(app.get('appName')); // My Express App
+```
+
+---
+
+### 🔹 How to Retrieve a Setting?
+
+Use `app.get()`:
+
+```js
+const engine = app.get('view engine');
+console.log(engine); // 'ejs'
+```
+
+---
+
+### 🔹 Summary Table
+
+| Setting               | Purpose                                   |
+| --------------------- | ----------------------------------------- |
+| `'view engine'`       | Sets the template engine (e.g., EJS, Pug) |
+| `'views'`             | Directory for view templates              |
+| Custom key-value pair | Store config or meta info                 |
+
+---
+
+### ✅ Example:
+
+```js
+const express = require('express');
+const app = express();
+const path = require('path');
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'templates'));
+
+app.get('/', (req, res) => {
+    res.render('home'); // looks for templates/home.ejs
+});
+
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+```
+
+---
+
+Great question! Let's break it down step by step in **simple terms**.
+
+---
+
+## 🔹 What is a *Strongly Coupled Application* in Node.js?
+
+A **strongly coupled application** is one in which **different parts of the code are tightly connected** to each other — like they depend heavily on each other's internal behavior or structure.
+
+### 🧠 Real-Life Analogy:
+
+Imagine a remote control that **only works with one specific TV model**. If you change the TV, the remote is useless. That’s strong coupling — the remote and the TV are tightly connected.
+
+---
+
+### 🔧 In Terms of Node.js / Express.js:
+
+In a **strongly coupled Node.js app**, things like:
+
+* **routes**
+* **views**
+* **data handling**
+* **server port**
+* **file structure**
+
+are all tightly interwoven — so changing one part (e.g., file path or port number) requires manual changes in multiple places.
+
+#### Example:
+
+```js
+// This is strongly coupled
+const express = require('express');
+const app = express();
+
+app.set('view engine', 'ejs');
+
+// Static path is hardcoded
+app.use(express.static('public'));
+
+// Route directly returns a view
+app.get('/', (req, res) => {
+    res.render('home'); // tightly depends on 'home.ejs'
+});
+
+// Hardcoded port
+app.listen(3000, () => {
+    console.log("Server running at http://localhost:3000");
+});
+```
+
+### 🔴 Problems with Strong Coupling:
+
+* Difficult to **test** or **reuse** parts
+* Hard to **scale**
+* Changing things like folder name or port breaks the app
+* Not suitable for **microservices or modular design**
+
+---
+
+## ✅ How to Avoid Strong Coupling (Loosely Coupled Design)
+
+A **loosely coupled** Node.js app uses:
+
+* Modular routes (in separate files)
+* Config files for ports and paths
+* Middleware for separation of concerns
+
+### Example of Loose Coupling:
+
+```js
+// config.js
+module.exports = {
+    PORT: 3000,
+    VIEWS_PATH: 'templates',
+    STATIC_PATH: 'public',
+};
+```
+
+```js
+// app.js
+const express = require('express');
+const path = require('path');
+const { PORT, VIEWS_PATH, STATIC_PATH } = require('./config');
+const app = express();
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, VIEWS_PATH));
+
+app.use(express.static(STATIC_PATH));
+
+const mainRoutes = require('./routes/main');
+app.use('/', mainRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
+```
+
+---
+
+### ✅ Summary:
+
+| Strongly Coupled App | Loosely Coupled App         |
+| -------------------- | --------------------------- |
+| Hardcoded logic      | Modular and configurable    |
+| Difficult to scale   | Easy to scale and test      |
+| Single-file logic    | Routes, config, logic split |
+
+---
+
+Let me know if you want a boilerplate code for loosely coupled architecture!

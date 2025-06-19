@@ -1,0 +1,116 @@
+/* .box{
+    width: 100px;
+    height: 100px;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+}
+
+.box:hover{
+    background-color: darkseagreen;
+    animation-name: increaseHeight ;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-timing-function: ease-out ;
+    animation-iteration-count: 2; 
+    animation-direction: normal;
+    /* animation-direction: alternate; */
+    /* animation-direction: alternate-reverse; */
+    /* animation-direction: reverse; */
+    /* animation-fill-mode: forwards ; */
+    /* animation-fill-mode: backwards ;
+    animation-play-state: paused;
+    animation-play-state: running;
+
+} */
+
+/* @keyframes increaseHeight {
+    from{
+        height: 100px;
+        background-color: cadetblue;
+    }
+
+    to{
+        height: 600px;
+        background-color: crimson;
+    }
+    
+} */
+/*
+@keyframes increaseHeight {
+    0%{
+        height: 100px;
+        background-color: cadetblue;
+    }
+    
+    50%{
+        height: 900px;
+        background-color: rgb(54, 223, 48);
+    }
+    
+    100%{
+        height: 500px;
+        background-color: crimson;
+    }
+    
+} */
+
+
+
+
+
+
+
+
+
+
+/* Styling the box */
+.box {
+    width: 100px;  /* Set width */
+    height: 100px; /* Set height */
+    background-color: cornflowerblue; /* Initial background color */
+    border: 2px solid black; /* Adding a black border */
+}
+
+/* Adding hover effect to trigger animation */
+.box:hover {
+    background-color: darkseagreen; /* Change background color on hover */
+
+    /* Animation properties */
+    animation-name: increaseHeight; /* Name of the keyframe animation */
+    animation-duration: 2s; /* Animation lasts for 2 seconds */
+    animation-delay: 0s; /* No delay before animation starts */
+    animation-timing-function: ease-out; /* Slows down towards the end */
+    animation-iteration-count: 2; /* Animation runs twice */
+    animation-direction: normal; /* Animation plays forward */
+    
+    /* Uncomment one of these to see different animation effects */
+    /* animation-direction: alternate; */ /* Runs forward then backward */
+    /* animation-direction: alternate-reverse; */ /* Runs backward then forward */
+    /* animation-direction: reverse; */ /* Runs in reverse order */
+
+    /* Determines how the element looks before/after animation */
+    /* animation-fill-mode: forwards; */ /* Retains last frame state */
+    animation-fill-mode: backwards; /* Applies first frame before animation starts */
+
+    /* Controls whether animation is paused or running */
+    animation-play-state: paused; /* Pauses animation */
+    animation-play-state: running; /* Runs animation */
+}
+
+/* Keyframes for increasing the height of the box */
+@keyframes increaseHeight {
+    0% {
+        height: 100px; /* Initial height */
+        background-color: cadetblue; /* Initial color */
+    }
+    
+    50% {
+        height: 900px; /* Expands to 900px at halfway */
+        background-color: rgb(54, 223, 48); /* Greenish color at 50% */
+    }
+    
+    100% {
+        height: 500px; /* Shrinks to 500px at end */
+        background-color: crimson; /* Red color at 100% */
+    }
+}

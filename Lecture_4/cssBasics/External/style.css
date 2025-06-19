@@ -1,0 +1,20 @@
+/* Styles the <h1> heading */
+h1 {
+    /* Sets the text color of the <h1> to burlywood */
+    color: burlywood;
+
+    /* Applies a line-through decoration to the <h1> text, crossing it out */
+    text-decoration: line-through;
+
+    /* Adds a 5-pixel solid black border around the <h1> */
+    border: 5px solid black;
+}
+
+/* Styles the <h4> heading */
+h4 {
+    /* Sets the text color of the <h4> to cornflower blue */
+    color: cornflowerblue;
+
+    /* Changes the background color of the <h4> to chocolate */
+    background-color: chocolate;
+}

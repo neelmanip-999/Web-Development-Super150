@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding, viewport settings, and browser compatibility -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Animated Box</title>
+</head>
+<body>
+
+    <!-- A single div with class "box" that will be animated -->
+    <div class="box"></div>
+    
+</body>
+</html>
+
+
+
+<!-- 
+Explanation of Features:
+Hover Animation:
+
+When you hover over the .box, the height and background color change.
+The animation runs twice (animation-iteration-count: 2).
+Keyframes (increaseHeight):
+
+0% (start): The box starts with height: 100px and background-color: cadetblue.
+50% (midpoint): The box expands to height: 900px and turns green.
+100% (end): The box shrinks to height: 500px and turns red.
+Animation Properties:
+
+animation-timing-function: ease-out; → Slows down towards the end.
+animation-fill-mode: backwards; → Applies styles from before animation starts.
+animation-play-state: running; → Ensures the animation runs when hovered.
+How to Experiment:
+Try Different animation-direction Options:
+
+normal (default): Runs forward only.
+reverse: Runs from end to start.
+alternate: Runs forward, then backward.
+alternate-reverse: Runs backward, then forward.
+Change animation-fill-mode:
+
+forwards: Retains final animation state after completion.
+backwards: Applies initial state before animation starts. -->

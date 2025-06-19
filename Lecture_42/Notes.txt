@@ -1,0 +1,51 @@
+**Express.js** is a **minimal and flexible web application framework** for **Node.js**. It is used to build web applications and APIs easily and efficiently.
+
+---
+
+### 🔧 Key Features of Express.js:
+
+1. **Middleware Support**: You can add multiple functions (middlewares) that process requests and responses.
+2. **Routing**: It provides a powerful way to handle different HTTP methods (GET, POST, etc.) and URL paths.
+3. **Template Engines**: Supports rendering HTML using template engines like EJS, Pug, or Handlebars.
+4. **Static File Serving**: Easily serve static files like images, CSS, and JS.
+5. **RESTful API Support**: Ideal for building RESTful APIs.
+
+---
+
+### 🛠 Simple Example:
+
+```javascript
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+// Route for GET /
+app.get('/', (req, res) => {
+  res.send('Hello, Express!');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+```
+
+---
+
+### ⚙ How Express Works:
+
+1. A user sends a request (e.g., visiting a webpage or calling an API).
+2. Express checks for a matching route.
+3. If found, it runs the appropriate callback function.
+4. It sends a response back to the user.
+
+---
+
+### 🌐 Use Cases:
+
+* Building **REST APIs**
+* Creating **web applications** (both frontend + backend)
+* Developing **microservices**
+* Making **server-side rendering** apps
+
+---
+

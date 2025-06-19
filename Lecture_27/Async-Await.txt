@@ -1,0 +1,97 @@
+// Function to demonstrate async/await behavior
+async function sam() {
+    console.log(10); // Logs 10
+    console.log(20); // Logs 20
+    let data = await fetch('https://api.tvmaze.com/search/shows?q=girls'); // Fetch request, waits here
+    console.log(data); // Logs the response after awaiting fetch
+    console.log(30); // Logs 30 after fetch completes
+}
+
+console.log(50); // Logs 50 first (before async function execution starts)
+sam(); // Calls async function
+console.log(60); // Logs 60 before the fetch completes (demonstrates async nature)
+
+// Another example with async/await
+async function sam2() {
+    console.log(10); // Logs 10
+    console.log(20); // Logs 20
+    let data = await fetch('https://api.tvmaze.com/search/shows?q=girls'); // Fetch request, waits here
+    console.log(data); // Logs the response after awaiting fetch
+    console.log(30); // Logs 30 after fetch completes
+}
+
+console.log(50); // Logs 50 first
+sam2(); // Calls async function
+console.log(60); // Logs 60 before the fetch completes
+
+/*
+// function sam(){
+// }
+// console.log(sam()); // undefined
+// console.log(new sam()); // object will be returned
+
+// if we write async before any function it return a promise
+// by default this promise returns its fulfilled value undefined, and if we manually return 100, it returns a promise with resolved value 100.
+
+// async function sam(){
+//     return 100;
+// }
+
+// if we manually return a promise then also promise will be returned, but that time our written function will be returned.
+// async function can work alone.
+
+// async function sam(){
+//     return new Promise((resolve) => resolve("Neelmani"));
+// }
+// console.log(sam());
+
+// fetch also returns a promise
+//----------------------------------------------------------------------------------------
+
+// async function sam(){
+//     console.log(10);
+//     console.log(20);
+//     let data = await fetch('https://api.tvmaze.com/search/shows?q=girls')
+//     console.log(data);
+//     console.log(30);
+// }
+
+// console.log(50);
+// sam();
+// console.log(60);
+
+// jnha promise ho raha hai wnha await lag sakta hai. await ka kaam karne ke liye function ko async hona jaruri hai.
+*/
+
+/*
+---------------------- Detailed Explanation ----------------------
+1. **Understanding async/await:**
+   - `async` keyword before a function makes it return a promise.
+   - If no value is explicitly returned, it resolves with `undefined`.
+   - If we return a value (e.g., `return 100;`), it resolves the promise with that value.
+   - If we return a promise inside an `async` function, it waits for the promise to resolve and returns the resolved value.
+
+2. **How fetch() works:**
+   - `fetch()` is an asynchronous function that returns a promise.
+   - Since `fetch()` returns a promise, we can use `await` to wait for the response.
+   - Without `await`, JavaScript will not wait and continue executing other code.
+
+3. **Execution Order (Event Loop Behavior):**
+   - The console logs `50` and `60` first because `fetch()` is asynchronous.
+   - The `async` function `sam()` starts execution but pauses at `await fetch(...)`.
+   - While waiting, other synchronous code continues execution.
+   - Once the fetch request is completed, it resumes execution from where it left off.
+
+4. **Why do we use await?**
+   - Using `await` makes code easier to read and understand, compared to `.then().catch()` chaining.
+   - It allows writing asynchronous code that looks synchronous, improving readability.
+
+5. **Common Mistakes to Avoid:**
+   - Not using `await` inside `async` functions.
+   - Forgetting that `fetch()` always returns a promise, even if the request fails.
+   - Not handling errors using `try...catch` or `.catch()`.
+
+6. **Real-world Use Case:**
+   - Fetching API data like weather information, stock prices, or user profiles.
+   - Handling asynchronous operations in JavaScript frameworks (React, Node.js, etc.).
+*/

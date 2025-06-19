@@ -1,0 +1,39 @@
+p:nth-of-type(1){
+    /* 
+    font-family:'Times New Roman', Times, serif; 
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    The commented font-family options include various font stacks, with fallback options for serif and sans-serif fonts.
+    */
+
+    font-family:Arial, Helvetica, sans-serif;  /* Sets the font-family to Arial with fallbacks to Helvetica and sans-serif. */
+    font-size: 30px;  /* Sets the font size of the first <p> element to 30px. */
+    font-weight:lighter;  /* Makes the font lighter in weight, visually thinner than normal. */
+    font-style: italic;  /* Italicizes the text for a slanted appearance. */
+    line-height: 3rem;  /* Sets the space between lines of text to 3 times the root element's font size (3 rem). */
+    letter-spacing: 0.1rem;  /* Adds spacing between letters, increasing the distance by 0.1 rem. */
+}
+
+h1{
+    /* 
+    display: inline-block;  
+    /* Makes the <h1> behave like a block element but stays inline with other content, allowing it to respect width/height settings.
+    
+    margin: 100px auto;  
+    /* Centers the <h1> with 100px margin on top and bottom, and auto-centering horizontally.
+    */
+    
+    text-align:center;  /* Centers the text inside the <h1> element. */
+    font-size: 50px;  /* Sets the font size of the <h1> element to 50px. */
+    text-shadow: 
+    1px 1.2px 6px red,                  /* Creates a red shadow with a slight offset and blur. */
+    1.1px 1.3px 7px rgb(26, 255, 0),    /* Adds a green shadow with a slightly larger blur. */
+    1.2px 1.4px 8px rgb(255, 234, 0),   /* Adds a yellow shadow, further expanding the blur. */
+    1.3px 1.5px 8px rgb(29, 44, 179);   /* Adds a blue shadow with a larger blur for a multi-colored layered shadow effect. */
+
+    border: 2px solid black;  /* Adds a 2px solid black border around the <h1> element. */
+    box-shadow: 
+    1px 1.2px 6px red,                  /* Adds a red box shadow to the element with a slight offset and blur. */
+    1.1px 1.3px 7px rgb(26, 255, 0),    /* Adds a green box shadow with a larger blur. */
+    1.2px 1.4px 8px rgb(255, 234, 0),   /* Adds a yellow box shadow, expanding the blur further. */
+    1.3px 1.5px 8px rgb(29, 44, 179);   /* Adds a blue box shadow for a multi-colored shadow effect around the element. */
+}

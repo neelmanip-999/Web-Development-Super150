@@ -1,0 +1,608 @@
+whenever we request something from browser, 2 type ke object store hote hn. 1) request ka object. 2) response ka object.
+
+ab request ke ander bhi 2 type ka object store hota hai. 1) path parameter. 2) query parameter.
+
+#path parameter --> 
+path ka istemaal subreddit wali cheejon ke liye hota hai. req.params mein se destructure kar sakte hn.
+
+# query parameter --> 
+eg. --> url --> https://localhost:8080/search?search=live+classes...
+
+https --> it is a protocol
+localhost:8080/search --> this is resource url
+? --> querystring ya query parameter.
+search=live+classes --> key-valur pair.
+
+path wali cheejein :(param) se pata chalti hn.
+query wali cheejein ?(question mark) se pata chalti hn.
+
+express ek third party package hai jo ki mera server banata hai. isko pehlr install karna padta hai firr require karna padta hai firr ye humko ek function bhejta hai. hum uss function ko call karte hn toh wo humko ek object ya instance deta hai jiska naam hum app rakhte hn.
+iss app ke ander hi hum apne application ko run karte hn.
+
+
+
+koi bhi request hum bhejte hn toh wo server ke paas jati hai. server 2 object apne paas rakhta hai request or response.  
+
+ab request ke ander 2 object hote hn. params(:) or query(?) --> param subreddit ke kaam aata hai or query -> query string ko samjne ke kaam ata hai. jab tak server response send nahi karta tab tak page reload hota rehta hai.
+
+
+
+
+methods --> 
+
+get --> fetch and retrieve the data.
+post --> send the data 
+use --> middleware hota hai jo ki all incoming request par chalta hai.
+
+
+// nodemon ek aisi cheej hai jo koi bhi changes pe server ko automatic reload karti hai ye ek third party package hai jisko humein install karna padta hai lekin require karne ki need nahi hoti. isko package.json mein jake scripts ke ander mention karna padta hai.
+then we use comment npm start.
+
+
+Templating is the process of generating dynamic HTML pages by combining static HTML with data from the server.
+In Node.js (with Express), templating engines like EJS, Pug, or Handlebars allow you to embed variables and logic (like loops and conditions) into HTML files, so the content can change based on user input or database results.
+
+only content chnage not the layout 
+
+
+
+
+Yes, you're right — the concept of **AJAX** involves a JavaScript layer between the **client (browser)** and the **server**. Let's explain it clearly:
+
+---
+
+### ✅ What is AJAX?
+
+**AJAX** stands for **Asynchronous JavaScript and XML**.
+
+It is a technique used to send and receive data **asynchronously** between the **browser and the server** **without refreshing the entire web page**.
+
+---
+
+### 🔄 Concept Explained:
+
+> 💡 Imagine a web page where **JavaScript** acts as a middle layer between the user and the server.
+
+* 🔹 **User clicks a button** or triggers an event.
+* 🔹 **JavaScript (AJAX)** sends an HTTP request to the server **in the background** using the `XMLHttpRequest` object or `fetch()` API.
+* 🔹 Server processes the request and sends back a response (usually JSON).
+* 🔹 JavaScript updates **part of the web page** dynamically using that response — **without full reload**.
+
+---
+
+### 📌 Diagram:
+
+```
+[Browser (User)] 
+     ⬇️        ⬆️
+  JavaScript (AJAX Layer)
+     ⬇️        ⬆️
+    [Server (Node.js, etc.)]
+```
+
+---
+
+### 📋 Real-life Example:
+
+You search "apple" in Google:
+
+* You **type** → JavaScript sends request via AJAX
+* Server responds with results
+* Page **updates live** — no full refresh
+
+---
+
+### 🆚 Without AJAX:
+
+* Each request reloads the full page.
+
+### ✅ With AJAX:
+
+* Only specific parts update, making it faster and smoother.
+
+---
+
+
+### ✅ What is `res.render` in Express?
+
+`res.render()` is a method in Express used to **render and send a dynamic HTML page** using a **templating engine** (like **EJS**, **Pug**, or **Handlebars**).
+
+---
+
+### 🔧 Syntax:
+
+```js
+res.render('viewName', dataObject)
+```
+
+* `'viewName'`: The name of the template file (without extension like `.ejs`).
+* `dataObject`: An object whose data will be injected into the template.
+
+---
+
+### 📌 Example using EJS:
+
+#### 1. Setup:
+
+```js
+app.set('view engine', 'ejs');
+```
+
+#### 2. Route:
+
+```js
+app.get('/profile', (req, res) => {
+    res.render('profile', { username: 'neel', age: 20 });
+});
+```
+
+#### 3. Template (`views/profile.ejs`):
+
+```html
+<h1>Welcome <%= username %></h1>
+<p>Age: <%= age %></p>
+```
+
+---
+
+### 💡 Result:
+
+When the user visits `/profile`, they see:
+
+```html
+<h1>Welcome neel</h1>
+<p>Age: 20</p>
+```
+
+---
+
+### ✅ Summary:
+
+* `res.send()` → sends plain text or HTML
+* `res.render()` → **renders a dynamic HTML file** using a template and data
+
+
+
+
+Great question! Let’s break it down simply:
+
+---
+
+### ✅ What is a **View**?
+
+A **View** is an HTML file (or template file) that defines **what the user sees** in their browser — the **UI**.
+
+* It is part of the **MVC architecture** (Model-View-Controller).
+* In Express, views are usually stored in the **`views/`** folder.
+* Views can be **static** or **dynamic** (with templating).
+
+🔹 Example:
+`views/profile.ejs` → A file that shows user profile details.
+
+---
+
+### ✅ What is a **Templating Engine**?
+
+A **Templating Engine** is a tool that allows you to **insert dynamic data** into HTML pages.
+
+It lets you:
+
+* Use variables (`<%= name %>`)
+* Add conditions (`if`, `else`)
+* Use loops (`for`, `each`)
+
+Popular templating engines:
+
+* **EJS** (Embedded JavaScript)
+* **Pug** (formerly Jade)
+* **Handlebars**
+
+---
+
+### 🔁 How They Work Together:
+
+1. User visits `/profile`
+2. Server calls `res.render('profile', { name: 'Neel' })`
+3. The templating engine injects `name = Neel` into `profile.ejs`
+4. Final HTML is sent to the browser
+
+---
+
+### 🔧 Summary:
+
+| Term                  | Meaning                                            |
+| --------------------- | -------------------------------------------------- |
+| **View**              | HTML page or template shown to the user            |
+| **Templating Engine** | Tool to generate dynamic HTML using data and logic |
+
+---
+
+
+
+### ✅ Types of Templating Engines in Node.js (Especially with Express)
+
+Templating engines help render dynamic content in HTML pages. Below are the most popular ones used with Node.js:
+
+---
+
+### 🔹 1. **EJS (Embedded JavaScript)**
+
+* Extension: `.ejs`
+* Syntax similar to plain HTML + JavaScript.
+* Easy to learn and beginner-friendly.
+
+```ejs
+<h1>Welcome <%= username %></h1>
+```
+
+✅ Pros: Simple, looks like HTML
+🚫 Cons: Limited features compared to advanced engines
+
+---
+
+### 🔹 2. **Pug (formerly Jade)**
+
+* Extension: `.pug`
+* Uses **indentation-based syntax**, no closing tags or HTML brackets.
+
+```pug
+h1 Welcome #{username}
+```
+
+✅ Pros: Clean and minimal syntax
+🚫 Cons: Not HTML-like, takes time to get used to
+
+---
+
+### 🔹 3. **Handlebars**
+
+* Extension: `.hbs`
+* Mustache-style syntax using `{{ }}` for placeholders.
+
+```hbs
+<h1>Welcome {{username}}</h1>
+```
+
+✅ Pros: Logic-less, secure and readable
+🚫 Cons: Less flexible for complex logic (intentionally)
+
+---
+
+### 🔹 4. **Mustache**
+
+* Extension: `.mustache`
+* Similar to Handlebars but even simpler.
+
+```mustache
+<h1>Hello {{name}}</h1>
+```
+
+✅ Pros: Ultra-minimal, logic-less
+🚫 Cons: Not very customizable
+
+---
+
+### 🔹 5. **Nunjucks**
+
+* Developed by Mozilla
+* Similar to Jinja2 (Python users)
+* More powerful for complex templating needs
+
+```nunjucks
+<h1>Hello {{ name }}</h1>
+{% if admin %}
+<p>Welcome admin</p>
+{% endif %}
+```
+
+✅ Pros: Rich features
+🚫 Cons: Heavier and less beginner-friendly
+
+---
+
+### 🔧 Summary Table
+
+| Templating Engine | Syntax Style | File Extension | Key Feature               |
+| ----------------- | ------------ | -------------- | ------------------------- |
+| EJS               | HTML + JS    | `.ejs`         | Easy, HTML-like           |
+| Pug               | Indentation  | `.pug`         | Minimalist, no HTML tags  |
+| Handlebars        | Mustache     | `.hbs`         | Clean, logic-less         |
+| Mustache          | Mustache     | `.mustache`    | Ultra-simple              |
+| Nunjucks          | HTML + tags  | `.njk`         | Powerful templating logic |
+
+---
+
+Absolutely! Let’s dive deep into **EJS (Embedded JavaScript)** — a widely-used and beginner-friendly templating engine for Node.js and Express.
+
+---
+
+## 🔷 What is EJS?
+
+**EJS (Embedded JavaScript Templates)** is a templating engine that allows you to **embed JavaScript code into your HTML pages** to render dynamic content.
+
+### ✅ Key Features:
+
+* Embed JS directly into HTML using `<% %>` tags.
+* Supports variables, loops, conditionals, includes, and partials.
+* Clean HTML with dynamic content injection.
+* Works seamlessly with Express (`res.render()`).
+
+---
+
+## 🛠️ How to Use EJS in an Express App
+
+### 📦 Step 1: Install EJS
+
+```bash
+npm install ejs
+```
+
+---
+
+### ⚙️ Step 2: Setup in Express
+
+```js
+const express = require('express');
+const app = express();
+
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+```
+
+---
+
+### 📁 Step 3: Folder Structure
+
+By default, Express looks for EJS files inside the **`views/`** folder:
+
+```
+project/
+│
+├── views/
+│   ├── home.ejs
+│   ├── profile.ejs
+│
+├── app.js
+```
+
+---
+
+### 🧩 Step 4: Create a View (EJS File)
+
+#### `views/home.ejs`:
+
+```ejs
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+</head>
+<body>
+  <h1>Welcome <%= name %>!</h1>
+  <p>Today is <%= date %></p>
+</body>
+</html>
+```
+
+---
+
+### 📍 Step 5: Render with `res.render()`
+
+```js
+app.get('/', (req, res) => {
+    const user = { name: 'Neelmani', date: new Date().toDateString() };
+    res.render('home', user); // name and date become available in the template
+});
+```
+
+---
+
+## 🔤 EJS Syntax in Detail
+
+| Syntax                                        | Meaning                                  |
+| --------------------------------------------- | ---------------------------------------- |
+| `<%= %>`                                      | Output the result (escaped for security) |
+| `<%- %>`                                      | Output raw HTML (not escaped)            |
+| `<% %>`                                       | Execute JavaScript code (no output)      |
+| `<% if (cond) { %> ... <% } %>`               | Conditional rendering                    |
+| `<% for (let i=0; i<5; i++) { %> ... <% } %>` | Looping                                  |
+
+---
+
+### 🔁 Loop Example:
+
+```ejs
+<ul>
+  <% for(let fruit of fruits) { %>
+    <li><%= fruit %></li>
+  <% } %>
+</ul>
+```
+
+#### And in your route:
+
+```js
+app.get('/fruits', (req, res) => {
+    res.render('fruits', { fruits: ['Apple', 'Banana', 'Orange'] });
+});
+```
+
+---
+
+## 📦 Includes and Partials in EJS
+
+You can reuse common HTML parts using `<%- include('filename') %>`
+
+### Example:
+
+#### `views/partials/header.ejs`
+
+```html
+<header>
+  <h1>This is the header</h1>
+</header>
+```
+
+#### `views/home.ejs`
+
+```ejs
+<%- include('partials/header') %>
+<h2>Welcome <%= name %>!</h2>
+```
+
+---
+
+## ✅ Pros of EJS:
+
+* HTML-like syntax (easy to learn).
+* Integrates well with Express.
+* Simple to create reusable templates and layouts.
+* Can include partials and organize views cleanly.
+
+## 🚫 Cons of EJS:
+
+* Not as modern as JSX or client-side rendering frameworks.
+* Lacks reactive DOM updates (unlike React or Vue).
+* Code can become messy if you mix too much JS with HTML.
+
+---
+
+## 📌 Summary:
+
+| Feature     | Description                                   |
+| ----------- | --------------------------------------------- |
+| Name        | EJS (Embedded JavaScript Templates)           |
+| Use         | Dynamic HTML rendering with server-side data  |
+| Syntax      | JavaScript inside `<% %>` within `.ejs` files |
+| Works with  | Express.js (`res.render()`)                   |
+| Folder      | `views/` directory by default                 |
+| Reusability | Includes/Partials supported                   |
+
+---
+
+
+Great question! ✅
+
+---
+
+### 🔷 Why Do We Make a `views` Folder in Express?
+
+In an Express.js application using a **templating engine** like **EJS**, the `views` folder is the **default location** where Express **looks for template files** (like `.ejs` files) to render using `res.render()`.
+
+---
+
+### ✅ Main Reasons:
+
+#### 1. **Default Configuration**
+
+* When you use `app.set('view engine', 'ejs')`, Express automatically looks for EJS files inside a folder called **`views/`**.
+* If you place your `.ejs` files outside this folder, you'll have to manually set a different path using:
+
+  ```js
+  app.set('views', 'custom_folder');
+  ```
+
+---
+
+#### 2. **Organized Code Structure**
+
+* Keeps your **HTML templates (views)** separate from:
+
+  * **Business logic** (`routes`, `controllers`)
+  * **Static files** (`images`, `CSS`, `JS`)
+* Makes your project **clean, modular, and scalable**.
+
+---
+
+#### 3. **MVC Architecture**
+
+* In the **Model-View-Controller (MVC)** pattern:
+
+  * `Models` manage data
+  * `Controllers` handle logic
+  * `Views` define the **UI**
+* The `views` folder fits naturally as the **V (View)** part of MVC.
+
+---
+
+### 📁 Typical Project Structure:
+
+```
+project/
+│
+├── views/               ← 👈 All EJS/HTML templates here
+│   ├── home.ejs
+│   └── about.ejs
+│
+├── public/              ← CSS, JS, images
+│
+├── routes/              ← Route definitions
+│
+├── app.js               ← Main server file
+```
+
+---
+
+### 🔚 Summary:
+
+| Reason          | Description                              |
+| --------------- | ---------------------------------------- |
+| 📍 Convention   | Express expects views in `views/` folder |
+| 🧹 Cleanliness  | Keeps templates separate from logic      |
+| 📦 Organization | Encourages modular, scalable structure   |
+| 🧠 MVC Pattern  | `views/` = the “V” in MVC                |
+
+---
+
+Let me know if you want to customize the `views` folder name or move to advanced structure!
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*****************************************//
+
+Templating --> ek baar route karoge toh ek hi baar page banega that is what we called templating in backend.
+
+res.render --> renders a view and sends the rendered html string to the client.
+
+view --> template/ structure
+template ko show karna pada hai
+browser ke paas 2 engine hote hn layout or javascript
+
+template ko dikhane ke liye bahut sare engiene hote hn, templating engines/ templating language.
+
+hbs, jade, pug, ejs they all are templating engiene.
+
+we discuss ejs..(embedded javascript)
+
+
+Tags in ejs --> three type ke hote hn
+
+<% 'Scriptlet' tag, for control-flow, no output
+<%_ ‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it
+<%= Outputs the value into the template (HTML escaped)
+<%- Outputs the unescaped value into the template
+<%# Comment tag, no execution, no output
+<%% Outputs a literal '<%'
+%> Plain ending tag
+-%> Trim-mode ('newline slurp') tag, trims following newline
+_%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
+
+default mein view engine undefined hota hai lekin humein isko ejs karna padega.
+
+
+**Compulsary / Routine......
+# whatever will be your template all these files will be make inside a folder namely views.
+
+
+
+ejs ke ander html like syntax or pure java script use hota hai.

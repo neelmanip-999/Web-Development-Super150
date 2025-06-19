@@ -1,0 +1,45 @@
+/* a[href="https://google.com"]{
+    color: green;
+}
+   This block targets the anchor (`a`) element that has an exact `href` value of "https://google.com" 
+   and would apply a green color to the text.
+*/
+
+
+/* a[href ^= "https"]{
+    color: rgb(128, 34, 0);
+}
+   This block selects all anchor tags where the `href` attribute starts with "https" 
+   (the `^=` is a "starts with" selector). The text would be colored with a specific shade of brown.
+*/
+
+
+/* a[href $= ".org"]{
+    font-size: 50px;
+    color: aqua;
+    border: 2px solid black;
+    text-decoration: none;
+}
+   This block selects anchor tags where the `href` attribute ends with ".org" 
+   (the `$=` is an "ends with" selector). The font size is set to 50px, the color is aqua, 
+   and a 2px black border is applied. The `text-decoration` removes the underline from the link.
+*/
+
+
+/* a[href *= "://"]{
+    font-size: 80px;
+    color: rgb(255, 0, 247);
+}
+   This block selects anchor tags where the `href` attribute contains "://" 
+   (the `*=` is a "contains" selector). The font size is set to 80px, and the color is bright pink.
+*/
+
+
+a[href *= "reddit"]{
+    font-size: 80px;
+    color: rgb(255, 0, 247);
+}
+/* 
+   This block targets anchor tags where the `href` attribute contains the word "reddit". 
+   It changes the font size to 80px and the text color to bright pink.
+*/

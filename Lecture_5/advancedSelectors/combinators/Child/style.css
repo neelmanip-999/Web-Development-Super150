@@ -1,0 +1,53 @@
+/* child sibling */
+
+/* section>div>p{
+    color: blue;
+} */
+
+/* section>section>div>p{
+    color: rgb(255, 64, 0);
+} */
+
+/* section>section>p{
+    color: rgb(255, 64, 0);
+} */
+
+
+/* adjacent sibling */
+/* article + section{
+    background-color: rgb(255, 251, 0);
+} */
+
+/* section + article{
+    background-color: rgb(34, 255, 0);
+} */
+
+
+/* general sibling */
+section ~ article{
+    background-color: rgb(0, 110, 255);
+}
+
+
+
+/*
+This CSS code demonstrates various types of selectors used to style elements in an HTML document.
+
+1. **Child Selector (`section > div > p`)**: 
+   - Targets all `<p>` elements that are direct children of a `<div>`, which is itself a direct child of a `<section>`. If uncommented, it would set the text color of those paragraphs to blue.
+
+2. **Child Selector (`section > section > div > p`)**: 
+   - Targets `<p>` elements that are direct children of a `<div>`, which is a direct child of another `<section>`. If uncommented, it would change the text color to rgb(255, 64, 0) (red-orange).
+
+3. **Child Selector (`section > section > p`)**: 
+   - Targets `<p>` elements that are direct children of a `<section>` that is a direct child of another `<section>`. If uncommented, it would also set the text color to rgb(255, 64, 0) (red-orange).
+
+4. **Adjacent Sibling Selector (`article + section`)**: 
+   - Targets a `<section>` that directly follows an `<article>`. If uncommented, it would set the background color of that section to rgb(255, 251, 0) (bright yellow).
+
+5. **Adjacent Sibling Selector (`section + article`)**: 
+   - Targets an `<article>` that directly follows a `<section>`. If uncommented, it would change the background color of that article to rgb(34, 255, 0) (bright green).
+
+6. **General Sibling Selector (`section ~ article`)**: 
+   - Targets all `<article>` elements that are siblings of a `<section>`, regardless of their position. This rule is currently active and will set the background color of those articles to rgb(0, 110, 255) (blue).
+*/

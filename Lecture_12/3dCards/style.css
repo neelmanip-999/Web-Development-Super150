@@ -1,0 +1,62 @@
+/* Default styling for all div elements */
+div {
+    width: 350px; /* Width of the flip card */
+    height: 250px; /* Height of the flip card */
+    border: 2px solid black; /* Black border */
+}
+
+/* Styling for Side A (Front) */
+.side-a {
+    background-color: aquamarine; /* Light green background */
+    backface-visibility: hidden; /* Hides the back side when viewed from the front */
+    z-index: 10; /* Ensures the front is on top by default */
+}
+
+/* Styling for Side B (Back) */
+.side-b {
+    background-color: coral; /* Light orange background */
+    transform: rotateY(180deg); /* Initially rotates the back side */
+}
+
+/* Adding 3D perspective to the body */
+body {
+    perspective: 900px; /* Adds depth to the 3D transformation */
+}
+
+/* Styling for the main wrapper */
+.wrapper {
+    position: relative; /* Allows absolute positioning of children */
+    width: 350px; /* Matches the div width */
+    height: 250px; /* Matches the div height */
+    transition: 2s; /* Smooth transition over 2 seconds */
+    transform-style: preserve-3d; /* Ensures child elements retain 3D positioning */
+    margin: 30px auto; /* Centers the card horizontally */
+}
+
+/* Ensuring both sides (A & B) overlap properly */
+.side-a, .side-b {
+    position: absolute; /* Overlapping position */
+}
+
+/* Flip effect when hovered */
+.wrapper:hover {
+    transform: rotateY(180deg); /* Rotates the entire wrapper when hovered */
+}
+
+/* Styling for the image inside Side A */
+img {
+    width: 100%; /* Ensures the image fits the div */
+}
+
+
+
+/* 
+Explanation of the 3D Flip Effect:
+The .wrapper acts as a container with 3D perspective.
+Side A (Front) and Side B (Back) overlap inside the .wrapper.
+The front side remains visible initially, while the back side is rotated 180 degrees.
+On hover, the entire .wrapper rotates 180 degrees, flipping the card.
+The backface-visibility: hidden; ensures only one side is visible at a time.
+How It Works:
+When you hover over the section, the card flips revealing the back.
+The smooth transition gives a realistic flipping effect. */

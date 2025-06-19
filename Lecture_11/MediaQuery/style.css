@@ -1,0 +1,53 @@
+/* Styling for the <section> element */
+section {
+    width: 60%;  /* Section width is 60% of the page */
+    margin: 20px auto;  /* Centers the section with a 20px margin on top and bottom */
+    border: 2px solid black;  /* Adds a black border */
+    padding: 20px;  /* Adds padding inside the section */
+}
+
+/* Styling for the <h2> heading */
+h2 {
+    font-size: 50px;  /* Large font size */
+    text-align: center;  /* Centers the text */
+}
+
+/* Media Queries to make the design responsive */
+
+/* Applies styles when screen width is 649px or smaller */
+@media screen and (max-width: 649px) {
+    h2 {
+        font-size: 25px;  /* Decreases font size */
+        color: blue;  /* Changes text color to blue */
+        text-transform: uppercase;  /* Converts text to uppercase */
+    }  
+}
+
+/* Applies styles when screen width is 807px or smaller */
+@media screen and (max-width: 807px) {
+    h2 {
+        color: orange;  /* Changes text color to orange */
+        font-size: 40px;  /* Adjusts font size */
+    }
+}
+
+/* Media Query for devices in landscape orientation */
+@media screen and (orientation: landscape) {
+    h2 {
+        color: yellow;  /* Changes text color to yellow */
+    }
+}
+
+/* Media Query for devices in portrait orientation */
+@media all and (orientation: portrait) {
+    h2 {
+        color: rgb(255, 0, 238);  /* Changes text color to pink */
+    }
+}
+
+/* Applies styles when screen is in landscape mode OR width is 600px or smaller */
+@media screen and (orientation: landscape), (max-width: 600px) {
+    h2 {
+        color: rgb(0, 255, 72);  /* Changes text color to green */
+    }
+}

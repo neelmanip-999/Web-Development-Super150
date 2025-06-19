@@ -1,0 +1,73 @@
+what is static file in express?
+ans --> .html, .css, js , .jpng they all are static file
+
+let we have to make a template/page/view -->
+so we make it in views folder the file like dog.ejs,etc..
+
+similarilyy we have our public file where we store our static file.
+
+the name like public and views are convention not compulsary.
+
+
+our express already knows the path till the public folder. we need to specify path after that..
+
+
+we can make million of files but repeating them is not good
+
+we will write the header part and bottom part which repeat itself to a seperate place 
+and for different body we will call them. which eventually increase code reusability.
+
+
+so for this purpose we crete one more folder partials inside the views folder.
+and create two more file inside partials 1) header.ejs and 2) footer.ejs
+
+
+Get V/s Post -->  
+
+
+1) get -->
+this should be used to retrieve or fetch the data.
+can we send data using get --> yes lekin humko aisa karna nahi chhiye. kyunki here data is available in your url as query parameter.
+
+get request is less secure kyunki url mein data najar aa jata hai.
+
+data sent using get is the plain string and only available as a query parameter.
+
+limited amount of data can be sent only 4096(ns).
+
+2) post -->
+
+this should be used to make the changes in the server (DB).
+
+here the data is available as "request.body".
+
+this is more secure kyunki url mein data nahi hota
+
+data of different type can be sent eg. text, xml, json.
+
+there is no limit which means huge huge amount of data can be sent.
+
+get is the default method if we submit a form.
+
+
+strongly coupled application --> aisi application jismein basic path pata hota hai usko strongly coupled application bolte hn.
+
+req.body by default undefined hota hai.
+req.body contains data in the form of  key value pair.
+
+our express already know the path till public folder, you just need to tell the path after that.
+
+we can make millions of file but it does not mean ki mein ek hi file baar baar repeat karun.
+
+if we have to bread the code in components then we have to make a folder inside view named partials in this we can make various components files.
+
+
+
+views --> template --> app.set()
+
+public -->  static --> app.use()
+
+
+
+what is the default method when we submit a form?
+the method is Get.

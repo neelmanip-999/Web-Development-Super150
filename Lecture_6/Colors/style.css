@@ -1,0 +1,65 @@
+/* General styles for all div elements */
+div {
+    width: 200px;              /* Sets the width of each div to 200 pixels */
+    height: 200px;             /* Sets the height of each div to 200 pixels */
+    border: 3px solid black;   /* Adds a solid black border with a thickness of 3 pixels */
+}
+
+/* Styles for the first, second, and third div elements using hexadecimal color values */
+div:nth-of-type(1) {
+   background-color: #3D386B; /* Sets the background color of the first div to a dark shade */
+}
+
+div:nth-of-type(2) {
+    background-color: #2234af66; /* Sets the background color of the second div to a semi-transparent blue */
+}
+
+div:nth-of-type(3) {
+    background-color: #ac3423ff; /* Sets the background color of the third div to a bright red */
+}
+
+/* Alternative styles using RGB color values (commented out) */
+/*
+div:nth-of-type(1) {
+    background-color: rgb(211, 23, 10); /* Sets the background color of the first div to a bright red */
+
+
+div:nth-of-type(2) {
+    background-color: rgb(10, 255, 0); /* Sets the background color of the second div to bright green */
+}
+
+div:nth-of-type(3) {
+    background-color: rgb(34, 40, 250); /* Sets the background color of the third div to a bright blue */
+}
+*/
+
+
+
+/* General styles for all div elements */
+div {
+    padding: 20px; /* Adds padding inside each div for spacing */
+    margin: 10px; /* Adds space between each div */
+    border: 2px solid #3498db; /* Adds a blue border around each div */
+    background-color: #ecf0f1; /* Sets a light grey background color for each div */
+    font-family: Arial, sans-serif; /* Changes the font of the text inside divs */
+    text-align: center; /* Centers the text inside each div */
+}
+
+/* Adding hover effect on divs */
+div:hover {
+    background-color: #bdc3c7; /* Changes background color on hover */
+}
+
+
+
+/* Explanation of Key Parts:
+General div Styles:
+
+The div selector applies to all <div> elements on the page, giving them a consistent size and border.
+Hexadecimal Colors:
+
+The nth-of-type pseudo-class selects specific div elements based on their order of appearance in the HTML.
+The first, second, and third div elements have distinct background colors defined in hexadecimal notation. This allows for precise control over the color shades.
+Commented-out RGB Styles:
+
+The alternative background colors using RGB values are commented out. If uncommented, they would apply different colors to the same div elements, demonstrating another way to set colors in CSS. */

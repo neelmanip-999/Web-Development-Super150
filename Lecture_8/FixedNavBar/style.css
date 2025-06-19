@@ -1,0 +1,32 @@
+*{
+    margin: 0;  /* Removes the default margin from all elements to prevent unwanted spacing around elements. */
+    padding: 0; /* Removes the default padding from all elements for consistent spacing. */
+}
+
+nav{
+    background-color: darkgray;  /* Sets the background color of the navigation bar to dark gray. */
+    font-size: 50px;  /* Sets the font size inside the navigation bar to 50px for large text. */
+    position: fixed;  /* Positions the navigation bar fixed at the top of the page, staying in view even when scrolling. */
+    top: 0;  /* Aligns the navigation bar to the very top of the viewport. */
+    width: 100%;  /* Ensures the navigation bar spans the full width of the page. */
+    height: 100px;  /* Sets the height of the navigation bar to 100px. */
+}
+
+nav>ul{
+    display: inline-block;  /* Makes the unordered list inside the nav inline-block, allowing it to be aligned next to other elements while retaining block-level properties. */
+}
+
+ul:last-child{
+    position: fixed;  /* The last <ul> element is fixed, staying in place as you scroll the page. */
+    right: 50px;  /* Positions the last <ul> 50px from the right edge of the viewport. */
+    color: red;  /* Sets the text color of the last <ul> to red. */
+}
+
+ul{
+    margin-left: 30px;  /* Adds a 30px margin to the left of each <ul> element to create space. */
+    margin-right: 30px; /* Adds a 30px margin to the right of each <ul> element. */
+}
+
+section{
+    margin-top: 100px;  /* Adds a 100px margin to the top of each section, creating space below the fixed navigation bar. */
+}

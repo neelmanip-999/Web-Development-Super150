@@ -1,0 +1,75 @@
+/* id */
+#sam {
+    color: red;
+}
+/* 
+    Selects the element with the ID "sam" and sets its text color to red. 
+*/
+
+#batch {
+    font-size: 100px;
+    color: aqua;
+}
+/* 
+    Selects the element with the ID "batch" and changes the font size to 100px and text color to aqua. 
+*/
+
+/* class */
+.sammy {
+    color: greenyellow;
+}
+/* 
+    Selects all elements with the class "sammy" and sets their text color to greenyellow. 
+*/
+
+/* .live {
+    font-size: 50px;
+} */
+/* 
+    This block is commented out, so it's not applied. 
+    If uncommented, it would set the font size of elements with the "live" class to 50px. 
+*/
+
+/* element */
+div {
+    color: red;
+}
+div {
+    color: orange;
+}
+/* 
+    The first block sets the color of all `div` elements to red, 
+    but the second block immediately overrides it, making all `div` elements orange.
+    The last rule applied in the cascade takes effect.
+*/
+
+/* inheritance */
+ol {
+    font-size: 30px;
+    color: cyan;
+    border: 2px solid black;
+}
+/* 
+    Selects ordered lists (`ol`) and sets the font size to 30px, text color to cyan, and adds a black border with 2px thickness.
+*/
+
+ol>li {
+    color: red;
+    font-size: 60px;
+    border: 3px solid black;
+    background-color: blue;
+}
+/* 
+    Targets the direct child list items (`li`) of ordered lists (`ol`) and:
+    - Sets text color to red
+    - Increases font size to 60px
+    - Adds a 3px black border
+    - Changes the background color to blue
+*/
+
+
+/* Key Concepts:
+ID Selectors (#): Targets specific elements with a given ID.
+Class Selectors (.): Applies styles to elements with specified class names.
+Element Selectors: Targets all instances of a particular HTML element.
+Inheritance and Specificity: More specific rules (like the ol>li rule) override more general rules, and later rules can overwrite earlier ones (as seen with the div color change). */

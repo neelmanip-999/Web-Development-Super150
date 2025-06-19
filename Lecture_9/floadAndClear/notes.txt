@@ -1,0 +1,13 @@
+Floating Images (float property)
+float: left; → Moves the image to the left of the container, allowing text to wrap around it.
+float: right; → Moves the image to the right, making text flow around it on the left.
+Images with float do not affect the normal document flow, so text wraps around them.
+Clearing the Float (clear property)
+clear: left; → Prevents an element from appearing next to left-floated elements.
+clear: right; → Prevents an element from appearing next to right-floated elements.
+clear: both; → Prevents an element from appearing next to any floated elements (left or right).
+Behavior in the Code
+.img1 (first image) is floated left.
+.img2 (second image) is floated right.
+p:nth-of-type(2), p:nth-of-type(3) { clear: both; }
+→ Ensures that these paragraphs appear below both floated images, preventing text wrapping.

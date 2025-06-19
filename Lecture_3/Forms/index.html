@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Forms</h1>
+
+    <!-- Start of the form -->
+    <form action="#" method="POST"> 
+        <!-- The form element defines the form. action specifies where to send the form data when submitted (currently set to "#" to prevent redirection). method specifies how to send the data; POST sends data through the request body, 
+        which is more secure for sensitive information like passwords. -->
+        <!-- Label for the name input -->
+        <label for="naam">Name: </label>
+        <!-- Input field for the user's name -->
+        <input type="text" name="name" id="naam"> 
+        <!-- This input is for the user's name. -->
+        <br>
+
+        <!-- Label for the password input -->
+        <label for="pass">Password: </label>
+        <!-- Input field for the user's password; the input type is 'password' to hide the text -->
+        <input type="password" name="password" id="pass"> 
+        <!-- This input is for the user's password. 
+        The type "password" obscures the characters entered. -->
+        <br>
+
+        <!-- Button to submit the form -->
+        <button>Login</button> 
+        <!-- This button submits the form when clicked. -->
+    </form>
+    <!-- End of the form -->
+
+</body>
+</html>
+
+
+<!-- 1. GET
+Description: The GET method appends form data to the URL in the form of a query string. It is commonly used for retrieving data.
+Characteristics:
+Data is sent in the URL, making it visible to the user.
+Limited amount of data can be sent (about 2048 characters).
+Suitable for non-sensitive data and requests that do not change server state (e.g., search queries).
+Data can be bookmarked and cached since it's part of the URL.
+
+2. POST
+Description: The POST method sends data in the body of the request, which is not visible in the URL. It is commonly used for sending sensitive data or modifying server state.
+
+Characteristics:
+
+Data is not visible in the URL.
+Can send large amounts of data (the limit depends on server settings).
+Suitable for sensitive data like passwords or files.
+Data cannot be bookmarked or cached.
+
+3. Other Methods
+While GET and POST are the most commonly used methods, HTML5 introduced some additional HTTP methods that can be used in forms, although browser support may vary:
+
+PUT: Used to update existing resources. It sends data in the request body like POST.
+
+DELETE: Used to delete resources. It also sends data in the request body, although the specifics can depend on the API being used.
+
+PATCH: Used to apply partial modifications to a resource.
+
+OPTIONS: Used to describe the communication options for the target resource.
+
+HEAD: Similar to GET, but it retrieves the headers only without the body.
+
+Summary
+GET: Data is appended to the URL; best for non-sensitive data retrieval.
+POST: Data is sent in the request body; best for sensitive data and resource modification.
+PUT, DELETE, PATCH, OPTIONS, HEAD: Additional methods used primarily in RESTful APIs, each with its specific use cases. -->

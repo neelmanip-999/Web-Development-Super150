@@ -1,0 +1,91 @@
+### API Calling in JavaScript
+
+API (Application Programming Interface) calling in JavaScript refers to the process of making requests to a web server to fetch or send data. APIs enable communication between the client (browser) and the server.
+
+### Types of API Calls:
+1. **GET Request**: Fetches data from a server.
+2. **POST Request**: Sends new data to a server.
+3. **PUT Request**: Updates existing data on a server.
+4. **DELETE Request**: Removes data from a server.
+
+### Methods for API Calling in JavaScript:
+#### 1. Using `fetch()` (Modern and Preferred)
+The `fetch()` function is used to make API requests and returns a `Promise`.
+
+Example of a GET request:
+```js
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json()) // Convert response to JSON
+    .then(data => console.log(data)) // Handle fetched data
+    .catch(error => console.error('Error:', error));
+```
+
+Example of a POST request:
+```js
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        title: 'New Post',
+        body: 'This is the content of the new post.',
+        userId: 1
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+```
+
+#### 2. Using `XMLHttpRequest` (Older Method)
+Example of a GET request:
+```js
+let xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+xhr.onload = function () {
+    if (xhr.status === 200) {
+        console.log(JSON.parse(xhr.responseText));
+    }
+};
+xhr.send();
+```
+
+#### 3. Using `async/await` (Recommended for Clean Code)
+Example of a GET request:
+```js
+async function fetchData() {
+    try {
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+fetchData();
+```
+
+### Headers and Authentication
+Some APIs require authentication (like API keys or tokens). Example:
+```js
+fetch('https://api.example.com/data', {
+    headers: {
+        'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
+    }
+})
+.then(response => response.json())
+.then(data => console.log(data));
+```
+
+### Handling Errors in API Calls
+Always handle errors using `catch` or `try...catch` blocks to prevent crashes.
+
+### Conclusion
+- Use `fetch()` for modern API calls.
+- Prefer `async/await` for better readability.
+- Handle errors properly.
+- Use headers when authentication is required.
+
+API calls are essential for fetching and sending data dynamically in web applications.
+

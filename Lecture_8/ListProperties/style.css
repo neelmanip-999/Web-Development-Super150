@@ -1,0 +1,22 @@
+li:first-child{
+    color: red;  /* Sets the text color of the first <li> element to red. */
+    
+    /* list-style-type: square; 
+    /* This would change the bullet point of the list item to a square, but it's commented out. */
+    
+    list-style-type:'\1F499';  
+    /* Attempts to use the Unicode character 💙 (U+1F499), but this is an incorrect use of list-style-type. 
+    list-style-type expects predefined values like 'disc', 'circle', 'square', etc. */
+    
+    border: 1px solid black;  /* Adds a 1px solid black border around the first <li> element. */
+    
+    list-style-position: inside;  
+    /* The bullet or list marker will be placed inside the content box of the list item, meaning it will align with the text content. */
+    
+    /* list-style-image: url('...') ; 
+    /* If uncommented, this would use the provided image URL as the bullet point for the list item. However, it's currently commented out. */
+    
+    list-style: '\1f440' inside;  
+    /* Attempts to apply the Unicode character 👀 (U+1F440) as the bullet point inside the list item. 
+    While this is an incorrect use of the `list-style` property, the intent seems to be adding a custom bullet character. */
+}

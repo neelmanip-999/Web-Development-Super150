@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags to define character set, viewport, and browser compatibility -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Parent container wrapping two child divs with class names 'box' and 'box2' -->
+    <div class="parent">
+        <div class="box"></div>
+        <div class="box2"></div>
+    </div>
+    
+</body>
+</html>
+
+
+
+<!-- 
+Explanation:
+HTML Structure:
+
+A parent container <div class="parent"> wraps two child <div> elements (.box and .box2), both of which will have the same style and animation effect.
+CSS Styling:
+
+Both .box and .box2 have:
+Fixed dimensions (100px by 100px).
+Colorful borders on all sides.
+Rounded corners using border-radius: 50% to make them circular.
+Center alignment with margin: 10px auto.
+Hover Effect:
+
+When the user hovers over .box or .box2, two animations are triggered:
+loader animation: This animation moves the box vertically (up and down) while rotating it 360 degrees.
+backgroundChanger animation: This changes the background color of the box through three different colors.
+Keyframes:
+
+loader: Defines how the box should move vertically (translateY) and rotate (rotate).
+backgroundChanger: Changes the background color of the box in stages: starting with a yellow color, switching to green, and then changing to red.
+Suggestions:
+Fixing the Parent Container: The opening tag for the parent container (<div class="parent">) has an extra { at the beginning, which is a syntax error. You should remove it:
+
+html
+Copy
+Edit
+<div class="parent">
+Optional Improvements:
+
+You can adjust the size of the boxes or the duration of the animations based on your preference.
+To make it more dynamic, you could add a delay to one of the animations for a more staggered effect. -->

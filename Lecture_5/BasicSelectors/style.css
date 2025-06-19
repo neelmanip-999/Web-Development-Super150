@@ -1,0 +1,133 @@
+/* element selector  */
+
+/* div{
+    border: 3px solid rgb(236, 37, 37);
+}
+
+p{
+    font-size: 40px;
+} */
+
+
+/* ID selector */
+
+/* #sam{
+    background-color: rgb(159, 92, 10);
+}
+
+#special{
+    font-size: 50px;
+} */
+
+/* class selector */
+/* .sachin{
+    background-color: aqua;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} */
+
+/* attribute selector */
+
+/* a[href='http://google.com']{
+    font-size: 40px;
+    background-color: blueviolet;
+}
+
+input[type="text"]{
+    border: 3px dashed orchid;
+}
+
+input[disabled]{
+    font-size: 50px;
+    background-color: aquamarine;
+} */
+
+/* universal selector */
+/* *{
+    border: 1px solid goldenrod;
+}
+
+body{
+    border: 20px solid rgb(0, 255, 8);
+}
+usage of *
+*{
+    margin:0;
+    padding:0;
+} */
+
+
+/* element selector  */
+/* 
+This section styles all <div> elements and <p> elements.
+*/
+div {
+    border: 3px solid rgb(236, 37, 37); /* Adds a red border around all div elements */
+}
+
+p {
+    font-size: 40px; /* Sets the font size of all paragraph elements to 40 pixels */
+}
+
+
+/* ID selector */
+/* 
+This section styles elements with specific IDs.
+*/
+#sam {
+    background-color: rgb(159, 92, 10); /* Sets the background color for the element with ID 'sam' */
+}
+
+#special {
+    font-size: 50px; /* Sets the font size of the element with ID 'special' to 50 pixels */
+}
+
+
+/* class selector */
+/* 
+This section styles elements with the class 'sachin'.
+*/
+.sachin {
+    background-color: aqua; /* Sets the background color for all elements with class 'sachin' */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets the font family for elements with class 'sachin' */
+}
+
+
+/* attribute selector */
+/* 
+This section styles elements based on their attributes.
+*/
+a[href='http://google.com'] {
+    font-size: 40px; /* Sets the font size of links to Google to 40 pixels */
+    background-color: blueviolet; /* Sets the background color for the link to Google */
+}
+
+input[type="text"] {
+    border: 3px dashed orchid; /* Adds a dashed border to text input fields */
+}
+
+input[disabled] {
+    font-size: 50px; /* Sets the font size of disabled input fields to 50 pixels */
+    background-color: aquamarine; /* Sets the background color for disabled input fields */
+}
+
+
+/* universal selector */
+/* 
+This section applies styles to all elements in the document.
+*/
+* {
+    border: 1px solid goldenrod; /* Adds a goldenrod border to all elements */
+}
+
+body {
+    border: 20px solid rgb(0, 255, 8); /* Adds a green border around the body of the document */
+}
+
+/* usage of universal selector */
+/* 
+Resetting margins and padding for all elements to prevent default browser styles.
+*/
+* {
+    margin: 0; /* Removes default margin from all elements */
+    padding: 0; /* Removes default padding from all elements */
+}

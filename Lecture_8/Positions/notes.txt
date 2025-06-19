@@ -1,0 +1,29 @@
+CSS Positioning Explained (Comments Only)
+1. position: static; (Default Position)
+This is the default positioning for all elements.
+The element appears in the normal document flow (where it would naturally be placed).
+It does not respond to top, bottom, left, or right properties.
+Example: A <div> inside a <body> follows the normal flow of the document.
+2. position: relative; (Position Relative to Itself)
+The element remains in the normal document flow but can be moved using top, bottom, left, or right.
+The movement is relative to its original position.
+Other elements do not get affected; they still behave as if the element were in its original place.
+3. position: absolute; (Position Relative to the Nearest Positioned Ancestor)
+The element is removed from the normal document flow.
+It is positioned relative to the nearest positioned ancestor (relative, absolute, or fixed).
+If no such ancestor exists, it is positioned relative to the <html> (or body).
+The top, bottom, left, and right values move it from this reference point.
+4. position: fixed; (Fixed to the Viewport)
+The element is removed from the normal document flow.
+It is always positioned relative to the viewport (browser window), regardless of scrolling.
+It does not move when the page is scrolled.
+Example: Sticky navigation bars or floating buttons.
+5. position: sticky; (Sticky Behavior)
+The element behaves like relative until a certain scroll position is reached.
+Once the scroll position is met, it behaves like fixed, staying in place.
+Requires top, bottom, left, or right values to define when it should "stick".
+Example: A header that stays at the top when scrolling down.
+Additional Notes
+z-index can be used with any positioned element (relative, absolute, fixed, sticky) to control stacking order.
+absolute and fixed elements do not take up space in the normal document flow.
+relative and sticky still take up space in the document flow.

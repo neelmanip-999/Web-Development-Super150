@@ -1,0 +1,44 @@
+/* Styling the section */
+section {
+    width: 90vw; /* 90% of the viewport width */
+    height: 80vh; /* 80% of the viewport height */
+    border: 2px solid black; /* Black border */
+    background-color: antiquewhite; /* Background color */
+}
+
+/* Styling the div elements inside section */
+div {
+    width: 100px; /* Width of each box */
+    height: 100px; /* Height of each box */
+    border: 2px solid darkolivegreen; /* Border color */
+    background-color: darkcyan; /* Background color */
+    margin: 20px; /* Space between divs */
+    transition: 3s; /* Apply transition effect over 3 seconds */
+}
+
+/* On hovering over the section, change the width of divs */
+section:hover div {
+    width: 80vw; /* Expands to 80% of the viewport width */
+}
+
+/* Different transition timing functions for each div */
+
+/* 1st div: 'ease-in' starts slow and speeds up */
+div:nth-of-type(1) {
+    transition-timing-function: ease-in;
+}
+
+/* 2nd div: 'ease-out' starts fast and slows down */
+div:nth-of-type(2) {
+    transition-timing-function: ease-out;
+}
+
+/* 3rd div: 'ease-in-out' starts slow, speeds up in the middle, then slows down */
+div:nth-of-type(3) {
+    transition-timing-function: ease-in-out;
+}
+
+/* 4th div: 'linear' moves at a constant speed */
+div:nth-of-type(4) {
+    transition-timing-function: linear;
+}

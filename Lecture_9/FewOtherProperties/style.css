@@ -1,0 +1,77 @@
+/* 
+Styling the paragraph (p)
+Initially, text will not wrap, overflow will be hidden, 
+and extra text will be replaced by '...' (ellipsis)
+*/
+p {
+    white-space: nowrap;  /* Prevents text from wrapping */
+    overflow: hidden;      /* Hides overflowing content */
+    text-overflow: ellipsis; /* Shows '...' for truncated text */
+}
+
+/* 
+On hover, allow scrolling to view hidden content 
+and remove the '...' effect.
+*/
+p:hover {
+    overflow: scroll; /* Enables scrolling when hovered */
+    text-overflow: clip; /* Shows full text without '...' */
+}
+
+
+
+
+
+
+/* 
+=========================================
+     Styling the paragraph (p)
+=========================================
+*/
+
+/* 
+1. `white-space: nowrap;`
+   - Ensures that all text remains on a **single line**.
+   - Prevents automatic line breaks, even if the content exceeds the container width.
+   - If omitted, text will wrap to the next line when it reaches the edge of the container.
+*/
+p {
+    white-space: nowrap;
+
+    /* 
+    2. `overflow: hidden;`
+       - Hides any text that **extends beyond** the width of the container.
+       - Prevents scrollbars from appearing unless explicitly set.
+    */
+    overflow: hidden;
+
+    /* 
+    3. `text-overflow: ellipsis;`
+       - When text is **cut off due to overflow**, it is replaced with "..."
+       - Works only if `white-space: nowrap;` and `overflow: hidden;` are also set.
+    */
+    text-overflow: ellipsis;
+}
+
+/* 
+=========================================
+     Hover Effect: Making Content Scrollable
+=========================================
+*/
+
+/* 
+4. `overflow: scroll;`
+   - Enables **both horizontal and vertical scrolling** inside the paragraph.
+   - Users can scroll to see the hidden content.
+   - Adds both horizontal and vertical scrollbars (if needed).
+*/
+p:hover {
+    overflow: scroll;
+
+    /* 
+    5. `text-overflow: clip;`
+       - Displays the text as is, **without truncating it** with "..."
+       - The text will just be cut off at the boundary instead.
+    */
+    text-overflow: clip;
+}
