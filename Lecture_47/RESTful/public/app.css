@@ -1,0 +1,34 @@
+/* Styling for all <h1> elements */
+h1 {
+    text-align: center;              /* Centers the text horizontally */
+    text-decoration: line-through;   /* Adds a line through the text (strikethrough) */
+    color: green;                    /* Sets text color to green */
+}
+
+/* Styling for all <h2> elements */
+h2 {
+    text-align: center;    /* Centers the text horizontally */
+    font-weight: 800;      /* Makes the text bold (800 is heavy font weight) */
+}
+
+/* Styling for all <h4> elements */
+h4 {
+    font-family: cursive;       /* Uses a cursive (handwritten-like) font */
+    color: mediumpurple;        /* Sets text color to a medium purple shade */
+}
+
+/* Styling for all <div> elements */
+div {
+    width: 300px;               /* Sets fixed width for the div */
+    height: 250px;              /* Sets fixed height for the div */
+    background-color: beige;    /* Sets background color to beige */
+}
+
+/* Styling for <section> elements */
+section {
+    display: flex;                  /* Makes section a flex container */
+    flex-direction: row;            /* Aligns child elements in a row (horizontally) */
+    justify-content: space-between; /* Distributes space evenly between child elements */
+    flex-wrap: wrap;                /* Allows child elements to wrap to next line if needed */
+    gap: 20px;                      /* Adds 20px gap between flex items */
+}

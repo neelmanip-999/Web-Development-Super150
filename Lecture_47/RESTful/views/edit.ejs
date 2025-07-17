@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures compatibility with older versions of IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Makes the page responsive on different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Fieldset groups form elements together visually -->
+    <fieldset>
+        <!-- Legend acts as the title for the fieldset -->
+        <legend>Form for Editing a Blog</legend>
+
+        <!-- Form for editing an existing blog comment -->
+        <!-- action specifies the route to send the form data -->
+        <!-- Here, /blogs/<%=foundComment.id%> dynamically includes the blog's ID -->
+        <!-- ?_method=PATCH is used with method-override to simulate HTTP PATCH request -->
+        <!-- method="POST" because HTML forms only support GET and POST; PATCH is simulated -->
+        <form action="/blogs/<%=foundComment.id%>?_method=PATCH" method="POST">
+
+            <!-- Label for the comment input field -->
+            <label for="comment">Comment: </label>
+
+            <!-- Input field to edit the existing comment -->
+            <!-- value="<%=foundComment.comment%>" pre-fills the input with current comment -->
+            <input type="text" name="comment" id="comment" value="<%=foundComment.comment%>">
+            <br>
+
+            <!-- Submit button to apply changes -->
+            <button type="submit">Edit Comment</button>
+        </form>
+    </fieldset>
+    
+</body>
+</html>
