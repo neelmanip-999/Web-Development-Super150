@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking an external CSS file for styling -->
+    <link rel="stylesheet" href="/css/app.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Main heading for the page -->
+    <h1>Displaying all the Blogs</h1>
+    
+    <section>
+        <!-- EJS loop starts: Iterate through each item in the 'comments' array -->
+        <% for(let i of comments){ %>
+            <div>
+                <!-- Display the ID of the comment -->
+                <h1>ID is: <%= i.id %> </h1>
+
+                <!-- Display the username of the person who commented -->
+                <h2>Name is: <%= i.username %> </h2>
+
+                <!-- Display the actual comment text -->
+                <h4>Comment is: <%= i.comment %> </h4>
+
+                <!-- Link to a detailed page for this specific comment using its ID -->
+                <a href="/blogs/<%= i.id %>">Show</a>
+            </div>
+        <% } %>
+        <!-- EJS loop ends -->
+    </section>
+
+</body>
+</html>

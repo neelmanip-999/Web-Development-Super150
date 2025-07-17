@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures the browser uses the latest rendering mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Makes the page responsive on all screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Heading to indicate that this page shows details of a specific blog -->
+    <h1>Showing a particular blog</h1>
+
+    <div>
+        <!-- Display the ID of the selected comment -->
+        <!-- <%= %> outputs the value of a variable passed from the backend -->
+        <h1>ID is: <%= foundComment.id %> </h1>
+
+        <!-- Display the username associated with this comment -->
+        <h2>Name is: <%= foundComment.username %> </h2>
+
+        <!-- Display the actual comment text -->
+        <h4>Comment is: <%= foundComment.comment %> </h4>
+    </div>
+    
+</body>
+</html>
