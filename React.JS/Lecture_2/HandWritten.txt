@@ -6,3 +6,188 @@ If we want to use loop we use map
 and if we want to use if else we use ternary operator.
 
 
+Why Use .map() Instead of for or forEach in React?
+--------------------------------------------------
+
+1. Because JSX is Declarative
+React encourages declarative code — describing what the UI should look like, not how to build it step-by-step.
+
+With .map():
+    {todos.map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+Tells React: “For each item in the list, return this UI element.”
+
+With for loop:
+    const listItems = [];
+    for (let i = 0; i < todos.length; i++) {
+      listItems.push(<li key={i}>{todos[i]}</li>);
+    }
+    // Then render: {listItems}
+
+2. .map() Directly Returns an Array
+.map() is designed to return a new array (of React elements), which JSX can render directly.
+
+3. Cleaner and Shorter Code
+    todos.map(...) // 1 line
+    vs.
+    for (...) { push(...) } // 4-5 lines
+
+Why Use the Ternary Operator Instead of if-else in JSX?
+--------------------------------------------------------
+
+1. if-else is a Statement, Not an Expression
+You can’t use if-else directly inside JSX because JSX expects expressions.
+
+    // ❌ Invalid in JSX
+    {if (x > 0) { return "Positive" } else { return "Negative" }}
+
+2. Ternary is an Expression
+    {x > 0 ? "Positive" : "Negative"} // ✅ This works inside JSX
+
+3. More Concise than using if before return
+    {isLoggedIn
+      ? <Dashboard />
+      : <LoginPage />
+    }
+
+Instead of:
+    if (isLoggedIn) {
+      return <Dashboard />;
+    } else {
+      return <LoginPage />;
+    }
+
+Summary
+-------
+
+| Feature         | Why It’s Preferred in React                   |
+|----------------|------------------------------------------------|
+| .map()         | Returns array of JSX directly; declarative    |
+| for loop       | Verbose, not used directly in JSX             |
+| Ternary        | JSX-friendly expression; clean conditional UI |
+| if-else        | Not allowed directly inside JSX               |
+
+
+
+
+
+Event Listener --> 
+let say we add a event listner and set onClick the function of this is to change the name od a person but on clicking it no change is shown so what is the reason the reason is value is definetely changed but it did not re render the page so it does not reflect to us so here come the concept of hooks.
+
+react hooks --> this are the special functions provided by the react it is built in function we do not have to create it we just have to use it
+eg useState, useEffect.
+if their is use before the function then it is a hooks.
+
+useState accepts an argument it can be of any data type it returns an array with two value the first is the name of the variable and the second is the function
+in the sense of react we call variable a state.
+
+let [name, function] = useState();
+() -> string, boolean, {}, [] anything accepts one argument. 
+function is the method by which help we change the value of the variable.
+
+useState rerenders the value so we can see the changed value.
+
+react create the component
+reactDom show this components by rendering it
+
+
+state and props are imutable we cannot change it directly...
+but by the help of hooks we can change it.
+
+
+
+### `useEffect` in React: Explained Simply
+
+`useEffect` is a **React Hook** that lets you **run side effects** in your function components.
+
+---
+
+### 🔄 What are "side effects"?
+
+Side effects are operations that can’t be done during rendering, like:
+
+* Fetching data from an API
+* Directly manipulating the DOM
+* Setting up a timer (`setTimeout`, `setInterval`)
+* Subscribing/unsubscribing to events
+
+---
+
+### 🧠 Syntax:
+
+```js
+useEffect(() => {
+  // your code here (side effect)
+}, [dependencies]);
+```
+
+---
+
+### ✅ Examples:
+
+#### 1. Run code once when component mounts
+
+```js
+useEffect(() => {
+  console.log('Component mounted');
+}, []);
+```
+
+**Explanation**: The empty array `[]` means this runs **only once** (like `componentDidMount` in class components).
+
+---
+
+#### 2. Run when a variable changes
+
+```js
+useEffect(() => {
+  console.log('Count changed to', count);
+}, [count]);
+```
+
+**Explanation**: This runs every time the `count` variable changes.
+
+---
+
+#### 3. Cleanup (like unmounting)
+
+```js
+useEffect(() => {
+  const intervalId = setInterval(() => {
+    console.log('Tick');
+  }, 1000);
+
+  return () => {
+    clearInterval(intervalId); // cleanup when component unmounts
+  };
+}, []);
+```
+
+---
+
+### 🔁 Without dependency array
+
+```js
+useEffect(() => {
+  console.log('Runs after every render');
+});
+```
+
+**Explanation**: If you don’t pass any second argument, the effect runs after **every** render.
+
+---
+
+### 💡 Summary
+
+| Use Case                          | Dependency Array            |
+| --------------------------------- | --------------------------- |
+| Run once on mount                 | `[]`                        |
+| Run when specific values change   | `[value1, value2]`          |
+| Run on every render               | *no second argument*        |
+| Run on mount + cleanup on unmount | `[]` with `return () => {}` |
+
+---
+
+
+
