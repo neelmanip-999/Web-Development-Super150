@@ -1,0 +1,8 @@
+we cant use for loop in react
+we cant use if and else statement in react
+if else is a conditional rendering
+so to use conditional rendering we use ternary operator.
+If we want to use loop we use map
+and if we want to use if else we use ternary operator.
+
+
