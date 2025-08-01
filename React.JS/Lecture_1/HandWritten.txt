@@ -1,0 +1,84 @@
+React is a JS Library.
+Lets say we have a page and it contains alot of products we reload the page in the backend it is asking the resources from the server (Ajax). 
+
+Asking for resource means a network call means increase the bandwith of network the more the bandwith will be the slower our application act as.
+
+so, to get rid of this we uses Ajax till now but in ajax we get data and we simply do dom manipulate 
+but but but we should avoid using dom or try to minimize its uses -- sam bhaiya
+
+because dom is a resourse heavy operation for eg if we have to change a 10% data of the page but still it render the 100% of the page this is the disadvantage of dom. eventually make heavy for use.
+
+when we create page from server it is slow , to create little faster we use ajax(Dom) , and if we want to create and load efficiently we uses React.
+server < Ajax(DOM) < React (faster page load).
+
+so what is special in react?
+react have a special power that is virtual dom what it does is simply comapre the two dom one of the page which was initial and one of the final page we want to create. so its only manipulate the 10% of the page which we actually wanted rather than whole dom which makes it faster.
+or virtual dom reality mein exist nahi karta so ye resource bhi jyada nahi leta.
+
+React is a component based architecture.
+what is a component?
+lets say in ecom website the card of product is a component we do not need to write code for every card or product we simply create a base code and changes the value as required.
+
+or in the other term every choti se choti cheej is a component. eg <h1>Hello</hi>
+
+Implementation --> 
+their is already a base app created by react
+npx create-react-app first-app
+then use cd react-app
+npm start
+in name of the project we often use lower case 
+
+the default port of backend is 8080
+and the default port of frontend is 3000
+
+in public folder their is a important file index.html
+the page which is rendering first is index.html
+we dont change or make updation in public folder we do all our tasks inside src folder.
+
+in src folder we have two important js file that is index.js and app.js their might exist more than two js file in src folder but the index.js is an ultimate and final file which imports all the files.
+
+all other js files --> app.js --> index.js 
+and index.js finally renders in index.html which is only html file in our folder
+
+webpacks is the thing which manage all the js file like which files got imported in which file etc..
+
+webpacks simplifies the build process for react application. it allow developers to manage dependencies and bunle files with ease.
+
+
+Components --> it is a simple function which we can use in any manner as we want.
+their are two type of component-->
+1. class component
+2. function component
+
+react recently removed class based component why this because before their is no hooks component in react thats why we used class component but now we have hooks which can help in state management.
+
+rafce -> react arrow function export component.
+
+rfce -> react export a function component.
+
+the return element can only withstand with one parent element. which is div if we want to print multiple things then simply write everything inside div tag even if inside a fragment tag also works.
+
+jsx is java script xml. --> js + html which means we can write tags as well as logic!
+
+but we know that js is the only programming language that is understand by browser so why does jsx is understood by browser so in the back of the scene jsx is converted in vanilla js(means pure js) to open our page.
+this conversion of jsx in js is done by babel.
+
+
+whenever we create any component just try to give the name initial letter capital.
+
+summary-->
+component are just function which we can use anywhere
+files name can be in upper as wall as lower case but the thing which we are exporting must be capital the starting letter.
+
+webpacks also manage css file and helps to run it
+
+syntax over semantics
+
+we can reuse as many time as we want our components which eventually make codebase more redable and help to lower redundancy.
+
+how to change the data of the components we use props for it.
+props known as property it is similar to attributes.
+it helps in trasnsfering the information/data from one to another. 
+
+if we want to evaluate our js code inside the html tag we write it inside the curly bracket otherwise it just show the our js command as it is in the web page this is only applicable in react.
+
