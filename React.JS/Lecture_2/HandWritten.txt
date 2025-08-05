@@ -191,3 +191,76 @@ useEffect(() => {
 
 
 
+The `useRef` hook in React is used to:
+
+---
+
+### ✅ **1. Access DOM elements directly**
+
+You can use `useRef` to get a **reference to a DOM element**, like an input, so you can interact with it without re-rendering the component.
+
+#### Example: Focusing an input field
+
+```jsx
+import { useRef, useEffect } from "react";
+
+function MyComponent() {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // Focus the input when component mounts
+    inputRef.current.focus();
+  }, []);
+
+  return <input ref={inputRef} />;
+}
+```
+
+---
+
+### ✅ **2. Store mutable values that don’t cause re-renders**
+
+You can use `useRef` like a variable that **persists across re-renders**, but changing its value **won’t trigger a re-render**, unlike `useState`.
+
+#### Example: Store previous count
+
+```jsx
+import { useRef, useState, useEffect } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const prevCount = useRef(count);
+
+  useEffect(() => {
+    prevCount.current = count;
+  }, [count]);
+
+  return (
+    <div>
+      <p>Now: {count}, Before: {prevCount.current}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+---
+
+### ✅ **3. Avoid re-initializing values**
+
+Useful for storing things like interval IDs or expensive objects **once** during the component's life.
+
+---
+
+## 🧠 Summary
+
+| Purpose                             | Triggers Re-render? | Use Case Example                    |
+| ----------------------------------- | ------------------- | ----------------------------------- |
+| Accessing DOM nodes                 | ❌ No                | Focus an input field on load        |
+| Storing mutable values              | ❌ No                | Store previous values or timers     |
+| Persisting values across re-renders | ❌ No                | Maintain state without re-rendering |
+
+---
+
+
+
