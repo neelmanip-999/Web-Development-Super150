@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Declares the language of the document as English -->
+<head>
+    <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Ensures compatibility with Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the page responsive on mobile devices -->
+
+    <!-- jquery -->
+    <script src="jQuery.js"></script> <!-- Includes the jQuery library from a local file -->
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-..." crossorigin="anonymous"> <!-- Includes Bootstrap CSS for styling -->
+
+    <!-- socket -->
+    <script src="socket.io/socket.io.js"></script> <!-- Loads the Socket.io library for real-time communication -->
+
+    <title>Chatting App</title> <!-- Sets the title of the web page -->
+
+    <style>
+        ul {
+            list-style: none; /* Removes default bullet points from unordered lists */
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="display-6 text-center mt-4">Mann ki Baat</h1> <!-- Displays the main title in center with margin-top -->
+
+    <!-- Login Section -->
+    <section id="login" class="border mx-auto p-2" style="width: 380px;"> <!-- A bordered, centered login box -->
+        <div class="d-grid gap-2"> <!-- Bootstrap grid layout with gap between elements -->
+            <input class="form-control" type="text" id="username" placeholder="please enter your name"> <!-- Text input for user name -->
+            <button class="btn btn-dark" id="login-btn" type="button">Login</button> <!-- Login button -->
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chat-box" class="border mx-auto p-2" style="width: 380px;"> <!-- A bordered, centered chat box -->
+        
+        <ul id="chat" class="overflow-auto ps-0" style="height: 300px;"> 
+            <!-- Unordered list to display chat messages; overflow allows scrolling; ps-0 removes padding start -->
+        </ul>
+
+        <textarea class="form-control" id="inp" rows="4" placeholder="please enter your dil ki baat"></textarea> 
+        <!-- Text area for typing chat messages -->
+
+        <button class="btn btn-md btn-dark m-2" id="send-btn">Send</button> <!-- Send button -->
+    </section>
+
+    <!-- bootstrap JS bundle (includes Popper.js too) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-..." crossorigin="anonymous"></script>
+
+    <!-- Your custom JS file -->
+    <script src="script.js"></script> <!-- Loads custom script for handling login, send, and socket logic -->
+</body>
+</html>
