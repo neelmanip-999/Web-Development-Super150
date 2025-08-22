@@ -1,0 +1,44 @@
+DB	--->	Collection (Model)	--->	Document
+
+1. Database (DB)
+	- The main container that stores data.
+	- Example: 'nobita' is a database.
+
+2. Collection (Model)
+	- In MongoDB, data is stored in collections (like tables in SQL).
+	- In Mongoose, a Model (JS Class) represents that collection.
+	- Model is created from a Schema (blueprint).
+	- Naming rule:
+		* Model name is singular & capitalized (e.g., 'Movie').
+		* MongoDB automatically converts it to plural lowercase ('movies').
+	- Example: 
+		const movieSchema = new mongoose.Schema({ name: String, rating: Number });
+		const Movie = mongoose.model("Movie", movieSchema);
+
+3. Document (Doc)
+	- A single record in a collection (like a row in SQL).
+	- Each document follows the structure defined by the Schema.
+	- Example: 
+		{ name: "IronMan", rating: 9, year: 2025, isWatched: true }
+
+------------------------------------------------------
+
+📌 Quick Summary
+	- Model is a JS class in code, but becomes a collection in DB.
+	- For Model creation, we first need a Schema.
+	- Objects created from Model are Documents stored in DB.
+
+------------------------------------------------------
+
+🔎 MongoDB Command
+	- show collections
+		* Used to see all collections inside the current database.
+		* Example Output in 'nobita' DB:
+			movies
+			users
+			orders
+
+------------------------------------------------------
+
+⚡ In One Line:
+	DB ---> Collections (Models) ---> Docs (Objects stored in DB)

@@ -1,0 +1,199 @@
+Every single entity is known as a Document.
+When we add a new document in MongoDB, MongoDB automatically assigns a unique `_id` to that document.
+
+--> CRUD:
+DB -> Collections -> Document
+
+1. CREATE (Insert)
+
+Example:
+
+test> use Naruto
+switched to db Naruto
+
+Naruto> db.movies.insertOne({name: "Supername", imdb: 7.7})  
+// 'db' is the current database
+// 'movies' is the collection
+// insertOne({}) is a MongoDB method that always accepts an object
+
+Output:
+{
+  acknowledged: true,
+  insertedId: ObjectId('68a23906cfa962c163eec4a9')
+}
+
+Naruto> show collections
+movies
+
+Naruto> db.movies.find({})
+[
+  {
+    _id: ObjectId('68a23906cfa962c163eec4a9'),
+    name: 'Supername',
+    imdb: 7.7
+  }
+]
+
+// Here: 'Naruto' is the DB, 'movies' is the collection, and {----} is a single document
+
+2. INSERT MANY (insertMany)
+
+Naruto> db.movies.insertMany([{ name: "spiderMan", imdb: 6}, {name: "Fast & Furious", imdb: 8}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68a314cb843b2cf592eec4a9'),
+    '1': ObjectId('68a314cb843b2cf592eec4aa')
+  }
+}
+
+Naruto> db.movies.find()
+[
+  { _id: ObjectId('...'), name: 'Supername', imdb: 7.7 },
+  { _id: ObjectId('...'), name: 'spiderMan', imdb: 6 },
+  { _id: ObjectId('...'), name: 'Fast & Furious', imdb: 8 }
+]
+
+3. READ (find)
+
+Naruto> db.movies.find({imdb: 8, name: "Fast & Furious"})
+[
+  { _id: ObjectId('...'), name: 'Fast & Furious', imdb: 8 }
+]
+
+Naruto> db.movies.find({imdb: 8})
+[
+  { _id: ObjectId('...'), name: 'Fast & Furious', imdb: 8 },
+  { _id: ObjectId('...'), name: 'Batman', imdb: 8 }
+]
+
+4. UPDATE ONE
+
+db.movies.updateOne({condition}, {changes})
+
+Naruto> db.movies.updateOne({name: "Batman"}, {$set: {imdb: 10, name: "Flash"}})
+{
+  acknowledged: true,
+  matchedCount: 1,
+  modifiedCount: 1
+}
+
+Naruto> db.movies.find({name: "Flash"})
+[
+  { _id: ObjectId('...'), name: 'Flash', imdb: 10 }
+]
+
+Note: If multiple docs have the same name, only the first encountered will be updated.
+
+5. UPDATE MANY
+
+db.movies.updateMany({condition}, {changes})
+
+Naruto> db.movies.updateMany({imdb: 8}, {$set: {name: "8 imdb wala movie"}})
+{
+  acknowledged: true,
+  matchedCount: 2,
+  modifiedCount: 2
+}
+
+Naruto> db.movies.find()
+[
+  { _id: ObjectId('...'), name: 'Supername', imdb: 7.7 },
+  { _id: ObjectId('...'), name: 'spiderMan', imdb: 6 },
+  { _id: ObjectId('...'), name: '8 imdb wala movie', imdb: 8 },
+  { _id: ObjectId('...'), name: 'Flash', imdb: 10 }
+]
+
+Note: If multiple docs are found, all will be updated.
+
+6. DELETE ONE
+
+db.movies.deleteOne({condition})
+
+Naruto> db.movies.deleteOne({name: "8 imdb wala movie"})
+{ acknowledged: true, deletedCount: 1 }
+
+Note: Only the first encountered document will be deleted.
+
+7. DELETE MANY
+
+db.movies.deleteMany({condition})
+
+Naruto> db.movies.deleteMany({imdb: 10})
+{ acknowledged: true, deletedCount: 1 }
+
+8. DELETE FIRST DOCUMENT (no condition)
+
+Naruto> db.movies.deleteOne({})
+{ acknowledged: true, deletedCount: 1 }
+
+9. DELETE ALL DOCUMENTS
+
+Naruto> db.movies.deleteMany({})
+{ acknowledged: true, deletedCount: 4 }
+
+Naruto> db.movies.find()
+[]
+
+-------------------------------------------------------------
+---> MongoDB Query Operators
+
+1. Equals ($eq)
+Naruto> db.movies.find({imdb: {$eq: 7}})
+
+2. Greater Than ($gt), Greater Than Equals ($gte)
+Naruto> db.movies.find({imdb: {$gt: 6}})
+
+3. Less Than ($lt), Less Than Equals ($lte)
+Naruto> db.movies.find({imdb: {$lte: 7}})
+
+4. Inside ($in)
+Naruto> db.movies.find({imdb: {$in: [5,6,7,8]}})
+
+---> Logical Operators
+
+5. AND ($and)
+Naruto> db.movies.find({$and: [{imdb: {$gt: 5}}, {imdb: {$lt: 9}}]})
+
+6. OR ($or)
+Naruto> db.movies.find({$or: [{imdb: {$gte: 9}}, {imdb: {$lte: 8}}]})
+
+-------------------------------------------------------------
+---> Interaction between Express & MongoDB shell
+
+- MongoDB provides **mongosh** (MongoDB shell).
+- In a full-stack app:
+
+Express <------ Interacts ------> mongosh
+
+- Since MongoDB is NoSQL → stores data as documents → we use an ODM (Object Document Mapper).
+- **Mongoose** is the ODM. It converts JSON/BSON data into usable JS objects.
+
+- For SQL DBs, the equivalent layer is called ORM (Object Relational Mapper).
+
+-------------------------------------------------------------
+---> Mongoose Basics
+
+1. Install: `npm install mongoose`
+2. Require: `const mongoose = require('mongoose')`
+3. Connect: `mongoose.connect('mongodb://127.0.0.1:27017/test')`
+   - Returns a promise (resolve → .then, reject → .catch)
+
+Mongoose workflow:
+Schema (Blueprint) -> Model (Collection) -> Document (Record in DB)
+
+Example:
+const movieSchema = new mongoose.Schema({ name: String, imdb: Number });
+const Movie = mongoose.model("Movie", movieSchema);
+
+Server (Express) ----JS--> ODM (Mongoose) ----JSON/BSON--> MongoDB
+Server (Express) <---JS--- ODM (Mongoose) <---JSON/BSON--- MongoDB
+
+- Schema tells how data will be mapped:
+  name -> String
+  imdb -> Number
+
+- Model is created from Schema.
+- Documents are created from Model.
+
+Note: `_id` is automatically generated by MongoDB for each document.
