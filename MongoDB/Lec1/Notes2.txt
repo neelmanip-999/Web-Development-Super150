@@ -1,0 +1,159 @@
+```java
+// notes.txt - Enhanced Database Notes
+
+/*
+ * =============================
+ * DATABASE FUNDAMENTALS
+ * =============================
+ */
+
+// DB: Collection of similar kinds of data
+// Example: list of programming languages, list of IES
+
+// DATA: Collection of properties
+// -> Useful/meaningful data is known as INFORMATION
+// -> Everything is data, jo meri kaam ki hai vo information hoti hai.
+
+/*
+ * =============================
+ * DATA STORAGE OPTIONS
+ * =============================
+ */
+
+// Q. What else we can use to store the data?
+// -> File System
+
+// Q. Why we don't use File System?
+// Ans:
+// 1. Data Redundancy (duplicacy, repetition)
+// 2. Data Inefficiency
+// 3. Less Security
+// 4. Less Scalability
+// 5. Limited data handling
+// 6. Searching is difficult
+
+
+/*
+ * =============================
+ * TYPES OF DATABASES
+ * =============================
+ */
+
+// 1. SQL (Structured Query Language) -> Not a DB, it is a query language
+// SQL Databases: They use SQL queries to interact with the database.
+// Example: MySQL, PostgreSQL, Oracle
+
+// 2. NoSQL: Databases which do not use SQL as the primary query language.
+// Example: MongoDB, Cassandra, CouchDB
+
+
+/*
+ * =============================
+ * DBMS (DATABASE MANAGEMENT SYSTEM)
+ * =============================
+ */
+
+// Q. What is DBMS?
+// Ans. Software which manages data.
+// Types:
+// 1. RDBMS: Relational (tables, rows & columns) -> SQL based
+// 2. NRDBMS: Non-Relational (documents, key-value, graph, etc.) -> NoSQL based
+
+// Table Structure:
+// - Primary Key (PK): uniquely identifies the record in a table.
+// - Foreign Key (FK): refers to the PK of another table, helps in connecting tables.
+
+
+/*
+ * =============================
+ * NOSQL DATABASE
+ * =============================
+ */
+
+// NoSQL DB: Data is stored in the form of Objects/Documents (not tables)
+// Example document:
+/*
+{
+    "id": 1,
+    "name": "Samarth",
+    "text": "hi from Samarth"
+},
+{
+    "id": 2,
+    "name": "Aman",
+    "text": "hello from Aman"
+}
+*/
+
+
+/*
+ * =============================
+ * CHOOSING BETWEEN SQL & NOSQL
+ * =============================
+ */
+
+// To choose DB we use 'CAP Theorem':
+// 1. Consistency: Same everywhere (SQL is more consistent)
+// 2. Availability: Always accessible (NoSQL is better)
+// 3. Partition Tolerance: Works across distributed systems (Both handle this well)
+
+
+/*
+ * =============================
+ * MONGODB
+ * =============================
+ */
+
+// Q. Why MongoDB?
+// Ans:
+// 1. Widely used (MERN, MEAN, MEVN stacks)
+// 2. Easy Syntax
+// 3. Flexible schema
+
+// Architecture:
+// 1. Monolithic: Single DB architecture
+// 2. Micro-service: Multiple DBs per service
+
+// Steps to use MongoDB:
+// 1. Install MongoDB Community Edition
+// 2. Install MongoDB Shell (mongosh)
+// 3. Open CMD and type: mongosh
+
+// mongosh is also a REPL (Read-Eval-Print-Loop)
+// Example:
+// > 1+1
+// 2
+// exit or Ctrl+C -> to exit mongosh
+
+// Common commands:
+// show dbs; or show databases; -> shows all available databases
+// use admin; -> switch to 'admin' database
+// db; -> shows current working database
+// db.dropDatabase(); -> deletes current database (⚠ avoid using this)
+// use newDB; -> creates and switches to newDB (DB is created only when data is inserted)
+
+
+/*
+ * =============================
+ * COLLECTION & DOCUMENT
+ * =============================
+ */
+
+// Q. What is a Collection? (MongoDB Specific)
+// Ans. Similar to tables in SQL DB.
+
+// Q. What is a Document?
+// Ans. Each atomic entity inside a collection is called a Document.
+
+// Mapping:
+// SQL -> rows/columns -> tables -> DB
+// NoSQL -> documents -> collections -> DB
+
+// Data Storage in MongoDB:
+// Stored in BSON (Binary JSON)
+
+// Difference between JSON & BSON:
+// 1. JSON is slower, BSON is faster
+// 2. JSON occupies more space, BSON is optimized
+// 3. JSON supports limited datatypes, BSON supports extended types (e.g., date, binary)
+```
