@@ -1,0 +1,106 @@
+# 📄 DOM Attributes in JavaScript
+
+In HTML, **attributes** define extra information about elements (like `href`, `id`, `class`, `src`, `type`, etc.).
+JavaScript provides two main methods to work with them:
+
+---
+
+## 1. `getAttribute(attributeName)`
+
+* Used to **read the value** of an attribute from an element.
+* Returns a `string` (the value of the attribute).
+* If the attribute does not exist, it returns `null`.
+
+### Example:
+
+```html
+<a href="http://google.com" class="link">Google</a>
+
+<script>
+  let anchor = document.querySelector('a');
+  console.log(anchor.getAttribute('href'));   // "http://google.com"
+  console.log(anchor.getAttribute('class'));  // "link"
+</script>
+```
+
+---
+
+## 2. `setAttribute(attributeName, value)`
+
+* Used to **set or change** the value of an attribute.
+* If the attribute does not exist, it **creates it**.
+
+### Example:
+
+```html
+<a href="http://google.com">Google</a>
+
+<script>
+  let anchor = document.querySelector('a');
+
+  // Change href
+  anchor.setAttribute('href', 'http://facebook.com'); 
+
+  // After this, clicking the link goes to Facebook instead of Google
+</script>
+```
+
+---
+
+## 3. ✅ Real World Use Cases
+
+### Example 1: Changing CSS classes dynamically
+
+```html
+<h1>Hello World</h1>
+
+<script>
+  let h1 = document.querySelector('h1');
+  h1.setAttribute('class', 'samarth');
+  // Now the <h1> has a class 'samarth', 
+  // so any CSS targeting .samarth will apply
+</script>
+```
+
+---
+
+### Example 2: Modifying input types dynamically
+
+```html
+<input type="text" placeholder="Enter something">
+
+<script>
+  let input = document.querySelector('input');
+
+  // Change input type to color picker
+  input.setAttribute('type', 'color');
+
+  // Change input type to date picker
+  // input.setAttribute('type', 'date');
+
+  // Change input type to checkbox
+  // input.setAttribute('type', 'checkbox');
+
+  // Change input type to password
+  // input.setAttribute('type', 'password');
+</script>
+```
+
+---
+
+# ✅ Key Differences Summary
+
+| Method                     | Purpose                                | Example Output          |
+| -------------------------- | -------------------------------------- | ----------------------- |
+| `getAttribute('attr')`     | Reads the value of an attribute        | `"http://google.com"`   |
+| `setAttribute('attr',val)` | Sets/updates the value of an attribute | `"http://facebook.com"` |
+
+---
+
+📌 **Best Practices:**
+
+* Use `getAttribute()` when you want to **read** an attribute’s value.
+* Use `setAttribute()` when you want to **update** or **add** new attributes dynamically.
+* Often used for **links, forms, input fields, and dynamic UI changes**.
+
+---

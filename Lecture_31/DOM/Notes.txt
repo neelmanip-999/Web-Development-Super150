@@ -1,0 +1,144 @@
+
+---
+
+# 📄 DOM Selection Methods in JavaScript
+
+The **Document Object Model (DOM)** represents the structure of an HTML document as a tree.
+JavaScript provides different ways to **access and manipulate elements** inside the DOM.
+
+Below are the major methods:
+
+---
+
+## 1. `document.getElementsByTagName()`
+
+* Returns a **live HTMLCollection** of all elements with the given tag name.
+* Example:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>getElementsByTagName Example</title>
+</head>
+<body>
+  <h1>Heading 1</h1>
+  <h1>Heading 2</h1>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+
+  <script>
+    let h1Arr = document.getElementsByTagName('h1');
+    console.log(h1Arr); // collection of all h1 tags
+    console.log(h1Arr[0]); // first h1
+    console.log(h1Arr[1]); // second h1
+
+    // Loop through all h1
+    for(let item of h1Arr){
+      item.style.color = "blue";
+    }
+  </script>
+</body>
+</html>
+```
+
+---
+
+## 2. `document.getElementById()`
+
+* Returns a **single element** that matches the given `id`.
+* Example:
+
+```html
+<h1 id="sam">Hello World</h1>
+
+<script>
+  let idElement = document.getElementById("sam");
+  console.log(idElement);
+  idElement.style.fontSize = "70px";
+</script>
+```
+
+---
+
+## 3. `document.getElementsByClassName()`
+
+* Returns a **live HTMLCollection** of elements with the given class name.
+* Example:
+
+```html
+<p class="dom">Paragraph 1</p>
+<p class="dom">Paragraph 2</p>
+<p>Normal Paragraph</p>
+
+<script>
+  let para = document.getElementsByClassName("dom");
+  console.log(para);
+
+  for(let item of para){
+    item.style.color = "orange";
+  }
+</script>
+```
+
+---
+
+## 4. `document.querySelector()`
+
+* Returns the **first element** that matches a given CSS selector.
+* Example:
+
+```html
+<h1>Heading</h1>
+<p class="dom">Paragraph</p>
+<p id="sam">Special Paragraph</p>
+
+<script>
+  let h1 = document.querySelector("h1");     // First <h1>
+  let dom = document.querySelector(".dom");  // First element with class "dom"
+  let sam = document.querySelector("#sam");  // Element with id "sam"
+
+  console.log(h1, dom, sam);
+</script>
+```
+
+---
+
+## 5. `document.querySelectorAll()`
+
+* Returns a **static NodeList** (not live) of all elements matching the CSS selector.
+* Example:
+
+```html
+<h1>Heading 1</h1>
+<h1>Heading 2</h1>
+<p class="dom">Paragraph 1</p>
+<p class="dom">Paragraph 2</p>
+<p id="sam">Special Paragraph</p>
+
+<script>
+  let h1 = document.querySelectorAll("h1");   // All h1 elements
+  let dom = document.querySelectorAll(".dom"); // All elements with class "dom"
+  let sam = document.querySelectorAll("#sam"); // All elements with id "sam"
+
+  console.log(h1, dom, sam);
+
+  h1.forEach(item => item.style.border = "2px solid purple");
+</script>
+```
+
+---
+
+# ✅ Key Differences Summary
+
+| Method                     | Returns                | Live / Static | Selector type |
+| -------------------------- | ---------------------- | ------------- | ------------- |
+| `getElementsByTagName()`   | HTMLCollection         | Live          | Tag name      |
+| `getElementById()`         | Single Element         | N/A           | ID            |
+| `getElementsByClassName()` | HTMLCollection         | Live          | Class name    |
+| `querySelector()`          | First matching element | Static        | CSS Selector  |
+| `querySelectorAll()`       | NodeList               | Static        | CSS Selector  |
+
+---
+
+

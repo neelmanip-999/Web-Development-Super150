@@ -1,0 +1,94 @@
+---
+
+# 📄 DOM Text & HTML Properties in JavaScript
+
+When working with DOM elements, we often need to **get or set the text/HTML content** inside them.
+JavaScript provides three main properties for this:
+
+---
+
+## 1. `innerText`
+
+* Represents the **visible text** inside an element (ignores hidden text like `display: none`).
+* It is **render-aware**:
+
+  * Takes into account CSS styling (e.g., hidden text won’t be included).
+  * Preserves line breaks.
+
+### Example:
+
+```html
+<p id="demo">Hello <span style="display:none;">World</span></p>
+
+<script>
+  let para = document.querySelector('#demo');
+  console.log(para.innerText); // Output: "Hello"
+</script>
+```
+
+---
+
+## 2. `textContent`
+
+* Represents **all text inside an element**, including hidden text.
+* Ignores CSS styles.
+* Faster than `innerText` because it does not reflow or consider rendering.
+
+### Example:
+
+```html
+<p id="demo">Hello <span style="display:none;">World</span></p>
+
+<script>
+  let para = document.querySelector('#demo');
+  console.log(para.textContent); // Output: "Hello World"
+</script>
+```
+
+---
+
+## 3. `innerHTML`
+
+* Represents the **HTML markup** inside an element.
+* As a **getter**, returns the raw HTML string.
+* As a **setter**, allows replacing the inner content with new HTML.
+
+⚠️ Be careful: Setting `innerHTML` with user input may cause **XSS attacks** if not sanitized.
+
+### Example:
+
+```html
+<p id="demo">Hello <b>World</b></p>
+
+<script>
+  let para = document.querySelector('#demo');
+
+  // Getter
+  console.log(para.innerHTML); 
+  // Output: "Hello <b>World</b>"
+
+  // Setter
+  para.innerHTML = "hi ab mai purane waala dost nhi rha";
+  // Changes the paragraph content completely
+</script>
+```
+
+---
+
+# ✅ Key Differences Summary
+
+| Property      | Returns / Affects | Considers CSS? | Includes Hidden Text? | Handles HTML? |
+| ------------- | ----------------- | -------------- | --------------------- | ------------- |
+| `innerText`   | Visible text      | ✅ Yes          | ❌ No                  | ❌ No          |
+| `textContent` | Raw text          | ❌ No           | ✅ Yes                 | ❌ No          |
+| `innerHTML`   | Raw HTML          | ❌ No           | ✅ Yes                 | ✅ Yes         |
+
+---
+
+📌 **Best Practices:**
+
+* Use `innerText` when you want only **visible text**.
+* Use `textContent` when you want **all text regardless of styling**.
+* Use `innerHTML` only when you need to **read/write HTML structure**.
+
+---
