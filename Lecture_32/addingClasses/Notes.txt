@@ -1,0 +1,80 @@
+
+---
+
+# 📄 Setting Multiple Classes in DOM
+
+In JavaScript, you can use **`setAttribute("class", "…")`** to assign classes to an element.
+
+---
+
+## 1. ✅ Correct usage (single class)
+
+```js
+let h1 = document.querySelector('h1');
+h1.setAttribute('class', 'sam');
+// Now the <h1> has class="sam"
+```
+
+---
+
+## 2. ✅ Correct usage (multiple classes)
+
+```js
+let h1 = document.querySelector('h1');
+h1.setAttribute('class', 'samarth sam neha maniket');
+// Now the <h1> has class="samarth sam neha maniket"
+```
+
+* Classes are separated by a **space** inside the string.
+* This is the proper way to set multiple classes at once.
+
+---
+
+## 3. ❌ Wrong usage
+
+```js
+// This is invalid
+h1.setAttribute('class', 'samarth', 'sam', 'neha', 'maniket', 'akshay');
+```
+
+* `setAttribute` only accepts **two arguments**:
+
+  * First → attribute name (e.g., `"class"`)
+  * Second → value of that attribute (string)
+
+Passing more than 2 arguments is invalid.
+
+---
+
+## 4. ⚡ Better way: Using `classList`
+
+Instead of rewriting all classes each time, we can use the **`classList` API**:
+
+```js
+let h1 = document.querySelector('h1');
+
+// Add classes
+h1.classList.add('samarth', 'sam', 'neha', 'maniket', 'akshay');
+
+// Remove a class
+h1.classList.remove('neha');
+
+// Toggle a class
+h1.classList.toggle('highlight');
+
+// Check if class exists
+console.log(h1.classList.contains('samarth')); // true
+```
+
+✅ `classList` is more flexible and avoids overwriting existing classes.
+
+---
+
+# ✅ Summary
+
+* `setAttribute('class', 'a b c')` → works, but replaces all classes.
+* `setAttribute('class', … , …)` with multiple arguments → ❌ invalid.
+* `classList.add/remove/toggle` → recommended way to handle multiple classes dynamically.
+
+---
+

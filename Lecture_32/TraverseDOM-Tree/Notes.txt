@@ -1,0 +1,61 @@
+---
+
+### ✅ 1. `parentElement`
+
+* ❌ Wrong: `para1.parentElement()` → `parentElement` is a **property**, not a function.
+* ✅ Correct:
+
+```js
+console.log(para1.parentElement);  
+```
+
+This will return the direct parent element of `#para1`.
+
+---
+
+### ✅ 2. `children`
+
+* ❌ Wrong: `arti1.children()` → again, `children` is a **property**, not a function.
+* ✅ Correct:
+
+```js
+let coll = arti1.children;   // gives HTMLCollection of all child elements of #arti
+for (let item of coll) {
+    item.style.fontSize = '24px'; // increases font size of each child
+}
+```
+
+---
+
+### ✅ 3. `nextElementSibling`
+
+```js
+console.log(div3.nextElementSibling);
+```
+
+👉 This returns the **next sibling element** in the DOM after `#div3`.
+
+* If `#div3` is followed by, say, `<p>Some text</p>`, that `<p>` will be printed.
+
+---
+
+### ✅ 4. `previousElementSibling`
+
+```js
+console.log(div3.previousElementSibling);
+```
+
+👉 This returns the **previous sibling element** in the DOM before `#div3`.
+
+---
+
+### ⚡ Summary of Your Fixes:
+
+* `.parentElement` ✅ (not a function)
+* `.children` ✅ (not a function)
+* `.nextElementSibling` ✅
+* `.previousElementSibling` ✅
+
+---
+
+

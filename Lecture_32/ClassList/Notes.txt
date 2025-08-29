@@ -1,0 +1,94 @@
+
+
+---
+
+# 📄 DOM `classList` API in JavaScript
+
+Every element’s `class` attribute can be accessed and manipulated using **`element.classList`**.
+It returns a **DOMTokenList**, which is like an array of all the classes applied to that element.
+
+`classList` provides **methods** to add, remove, toggle, and check classes without overwriting them.
+
+---
+
+## 1. `add()`
+
+* Adds one or more classes to the element.
+* **Correct usage:** `element.classList.add('class1', 'class2', …)`
+* ❌ Wrong: `element.classList.add('class1 class2')` → this treats it as one single class (with a space inside).
+
+### Example:
+
+```js
+let arti = document.querySelector('article');
+
+arti.classList.add('sam'); 
+arti.classList.add('sam', 'samarth', 'neha', 'maniket'); 
+arti.classList.add('changu-mangu');
+
+// Now <article> has: class="sam samarth neha maniket changu-mangu"
+```
+
+---
+
+## 2. `remove()`
+
+* Removes one or more classes from the element.
+
+### Example:
+
+```js
+arti.classList.remove('sam', 'maniket');
+
+// Now <article> has: class="samarth neha changu-mangu"
+```
+
+---
+
+## 3. `toggle()`
+
+* Adds the class if it’s **not present**, removes it if it **is present**.
+* Returns `true` if class is added, `false` if removed.
+
+### Example:
+
+```js
+arti.classList.toggle('toggle'); // Adds 'toggle', returns true
+arti.classList.toggle('toggle'); // Removes 'toggle', returns false
+```
+
+---
+
+## 4. `contains()`
+
+* Checks if a specific class exists on the element.
+* Returns a **boolean** (`true` / `false`).
+
+### Example:
+
+```js
+console.log(arti.classList.contains('sachin'));   // false
+console.log(arti.classList.contains('sam'));      // false (removed earlier)
+console.log(arti.classList.contains('samarth'));  // true
+```
+
+---
+
+# ✅ Summary Table
+
+| Method                      | Purpose                  | Returns    |
+| --------------------------- | ------------------------ | ---------- |
+| `classList.add('a','b')`    | Adds one/more classes    | void       |
+| `classList.remove('a','b')` | Removes one/more classes | void       |
+| `classList.toggle('a')`     | Toggles a class on/off   | true/false |
+| `classList.contains('a')`   | Checks if class exists   | true/false |
+
+---
+
+📌 **Best Practice Tip:**
+
+* Use **`classList`** over `setAttribute('class', …)` when you want to **add/remove/toggle** classes dynamically without overwriting the existing ones.
+
+---
+
+
