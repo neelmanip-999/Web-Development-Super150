@@ -1,0 +1,208 @@
+# React Overview
+
+React is a **JavaScript library** that is widely used for building interactive user interfaces.
+
+One of the main reasons React is powerful is because it **minimizes direct interaction with the DOM**. The DOM (Document Object Model) is heavy and expensive to update frequently. If we keep modifying it directly, applications can become slow. React helps avoid this issue.
+
+In a traditional client-server setup, we might use AJAX to fetch data from the server and then manipulate the DOM manually. With React, the process becomes more efficient because React uses its own mechanism to update the UI.
+
+---
+
+## Why React is Special
+
+### Virtual DOM Concept
+
+React introduces the **Virtual DOM**, which is not a real DOM but a lightweight copy of it.
+
+Here’s how it works:
+
+1. When a page is initially rendered, React keeps a virtual copy of the DOM.
+2. When something changes (like data), React creates another version of the Virtual DOM to represent the updated UI.
+3. React compares the old and new Virtual DOM (this process is called **reconciliation**).
+4. It updates **only the parts of the actual DOM that have changed** instead of re-rendering the whole page.
+
+This process makes React applications much faster and more efficient.
+
+---
+
+## Component-Based Architecture
+
+React applications are built using **components**.
+
+* A component can be as small as a single heading (`<h1>Hello</h1>`) or as large as an entire section of a webpage.
+* By combining multiple components, we build complete applications.
+* This approach improves **reusability** and **maintainability** of code.
+
+---
+
+## Setting up a React Application
+
+You can create a new React app with the command:
+
+* `npx create-react-app project-name`
+
+This automatically sets up the project structure, configuration, and dependencies.
+
+Some important commands:
+
+* `npm start` → runs the development server (no need for additional tools like nodemon).
+* `npm run build` → bundles the application into static files for deployment.
+* `npm test` → runs tests.
+* `npm run eject` → exposes the hidden configuration (not reversible).
+
+By default:
+
+* The **backend server** usually runs on port `8080`.
+* The **frontend React server** runs on port `3000`.
+
+---
+
+## Important Folders
+
+1. **public**: Contains `index.html` — the single HTML file that loads the React app. We generally don’t modify this folder.
+2. **src (source folder)**: This is where we write our React code (components, styles, logic).
+
+Inside `src`, we can delete unnecessary files like test files, logos, and setup utilities to keep things clean.
+
+The **main flow** of a React app is:
+
+* `index.html` (the only HTML file)
+* `index.js` (entry point for JavaScript)
+* `App.js` (root component)
+* Additional components (e.g., `Header.js`, `Todo.js`, etc.)
+
+---
+
+## Webpack
+
+React internally uses **Webpack**, a bundler, to:
+
+* Manage dependencies
+* Bundle multiple files into one
+* Handle CSS, images, and other assets
+
+You don’t usually configure Webpack manually when using Create React App because it comes preconfigured.
+
+---
+
+## Components
+
+There are two types of components:
+
+1. **Class components** (older style, rarely used today).
+2. **Functional components** (modern standard, easier to use).
+
+Components return **JSX (JavaScript XML)** — a syntax that looks like HTML but is actually JavaScript under the hood.
+
+Since browsers do not understand JSX directly, a compiler called **Babel** converts JSX into plain JavaScript before it runs in the browser.
+
+---
+
+## Conventions
+
+* Component names should always start with a **capital letter**.
+* CSS and JavaScript files are managed by Webpack, so you can freely import them into components.
+* React focuses on **syntax over semantics** — meaning how things are written is more important than what they mean in raw HTML.
+
+---
+
+## Props and Reusability
+
+* **Props** are like attributes that allow you to pass data from one component to another.
+* Components are reusable, and props make them dynamic by customizing their behavior or content.
+
+---
+
+## React Hooks
+
+Hooks are **special functions** provided by React to handle state and lifecycle behavior in functional components.
+
+### Common Hooks:
+
+1. **useState()**:
+
+   * Allows you to store data in a component (called “state”).
+   * Returns two things: the state variable and a function to update it.
+   * Updating state with this function triggers a re-render.
+
+2. **useEffect()**:
+
+   * Runs code when the component mounts, updates, or unmounts.
+   * Accepts two arguments: a callback function and a dependency array.
+   * If items in the dependency array change, the effect re-runs.
+
+3. **useRef()**:
+
+   * Provides a reference to values or DOM elements that do not trigger re-renders when updated.
+   * Useful for things like form inputs or tracking values across renders without refreshing the UI.
+
+---
+
+## State Management
+
+* States and props are **immutable**. You cannot modify them directly; instead, you use functions like `setState`.
+* The **previous state** can be referenced when updating to ensure consistent results.
+
+---
+
+## Local Storage
+
+* React apps often use **Local Storage** to persist data in the browser.
+* Data in local storage survives a browser refresh.
+* It stores everything as key–value pairs, where the value is always stored as a string.
+
+---
+
+## React Router DOM
+
+React is a **single-page application (SPA)** — it does not reload when moving between pages.
+
+To handle multiple “pages,” we use **React Router DOM**, a third-party library.
+
+* It allows navigation without reloading the page.
+* Traditional `<a>` tags cause a full refresh, so instead, we use the `<Link>` component.
+* React Router also provides hooks like **useNavigate()** to programmatically redirect the user.
+
+For example: moving from a signup page to a login page happens instantly without reloading.
+
+---
+
+## Client-Side Rendering
+
+React uses **client-side rendering** — the entire app is loaded once, and the UI updates dynamically without new page requests.
+
+---
+
+## Backend Setup
+
+When integrating React with a backend (often Express + MongoDB):
+
+1. Initialize with `npm init -y`.
+2. Install necessary dependencies: `express`, `mongoose`, `nodemon`.
+3. Organize the backend into `models`, `api`, and `app.js`.
+
+---
+
+## CORS (Cross-Origin Resource Sharing)
+
+Since React and Express typically run on **different ports** (3000 vs 8080), browsers block cross-origin requests by default.
+
+To fix this:
+
+* Install and configure the **CORS** package on the backend.
+* This allows the frontend to make requests to the backend safely.
+
+---
+
+# Core Summary
+
+* React is efficient because of the **Virtual DOM**.
+* Applications are structured using **components** that are **reusable**.
+* JSX makes writing UI intuitive, but Babel converts it to JavaScript.
+* **Hooks** (useState, useEffect, useRef) handle state and side effects.
+* **React Router DOM** enables navigation without page reloads.
+* **Local Storage** provides client-side persistence.
+* Backend integration requires handling **CORS** to allow communication between servers.
+
+---
+
