@@ -1,0 +1,193 @@
+
+
+# 📄 Event Life Cycle in JavaScript
+
+In JavaScript, when an event occurs on an element, it **travels through three main phases** called the **Event Life Cycle**:
+
+1. **Capturing Phase** (also called “trickling”)
+2. **Target Phase**
+3. **Bubbling Phase**
+
+---
+
+## 1. Capturing Phase (Trickling Phase)
+
+* The event **starts from the top of the DOM tree** (window → document → html → body → …)
+* It travels **downwards** toward the target element.
+* Listeners set with **`useCapture = true`** execute during this phase.
+
+### Example:
+
+```html
+<div id="grandParent">
+  <div id="parent">
+    <button id="child">Click me</button>
+  </div>
+</div>
+
+<script>
+let grandParent = document.getElementById('grandParent');
+let parent = document.getElementById('parent');
+let child = document.getElementById('child');
+
+grandParent.addEventListener('click', () => console.log('grandParent'), true);
+parent.addEventListener('click', () => console.log('parent'), true);
+child.addEventListener('click', () => console.log('child'), true);
+</script>
+```
+
+**Clicking the button output:**
+
+```
+grandParent → parent → child
+```
+
+* Because all listeners are in **capturing phase**.
+
+---
+
+## 2. Target Phase
+
+* This is the phase when the event **actually reaches the target element**.
+* The target element can have listeners in both capturing and bubbling phase, but **capturing listeners run first**, then the target’s own listener.
+
+### Example:
+
+```js
+child.addEventListener('click', () => console.log('child target'), false); 
+```
+
+* Even if `useCapture = false`, the listener will execute **at the target phase** before bubbling starts.
+
+---
+
+## 3. Bubbling Phase
+
+* After the target phase, the event **bubbles up** from the target element back to the root.
+* Listeners with **`useCapture = false`** execute during this phase (default behavior).
+
+### Example:
+
+```js
+grandParent.addEventListener('click', () => console.log('grandParent bubble'), false);
+parent.addEventListener('click', () => console.log('parent bubble'), false);
+child.addEventListener('click', () => console.log('child bubble'), false);
+```
+
+**Clicking the button output in bubbling phase:**
+
+```
+child → parent → grandParent
+```
+
+---
+
+## 4. Stopping Event Propagation
+
+Sometimes you **don’t want the event to travel further**. Use:
+
+```js
+event.stopPropagation();  // stops event from moving further in either capturing or bubbling
+```
+
+* Example:
+
+```js
+parent.addEventListener('click', (event) => {
+    console.log('parent clicked');
+    event.stopPropagation();
+}, false);
+```
+
+* Clicking **child** will execute child listener, parent listener, **but grandParent listener will not run**.
+
+---
+
+## 5. Event Phases Summary
+
+| Phase           | Direction     | `useCapture` | Example output when clicking child |
+| --------------- | ------------- | ------------ | ---------------------------------- |
+| Capturing Phase | Top → Target  | true         | grandParent → parent → child       |
+| Target Phase    | Target itself | both         | child listener executes            |
+| Bubbling Phase  | Target → Top  | false        | child → parent → grandParent       |
+
+---
+
+## 6. Practical Use Cases
+
+* **Capturing Phase:** Useful for **delegation** or **intercepting events early**.
+* **Target Phase:** When you want **the target element to handle its own event**.
+* **Bubbling Phase:** Useful for **event delegation** (handle events on parent instead of multiple children).
+
+---
+
+## 7. Event Delegation Example
+
+Instead of adding event listeners to multiple child elements:
+
+```html
+<ul id="menu">
+  <li>Home</li>
+  <li>About</li>
+  <li>Contact</li>
+</ul>
+
+<script>
+let menu = document.getElementById('menu');
+
+menu.addEventListener('click', (e) => {
+    if(e.target.tagName === 'LI'){
+        console.log('Clicked:', e.target.innerText);
+    }
+});
+</script>
+```
+
+* Only **one listener** on the parent handles clicks on any child.
+* Uses **bubbling phase** to catch events.
+
+---
+
+# ✅ Key Points
+
+* **`useCapture = true`** → listener in capturing phase.
+* **`useCapture = false` (default)** → listener in bubbling phase.
+* **`event.stopPropagation()`** → stops further propagation.
+* Target phase is always in the middle: the event is on the element itself.
+* **Event delegation** relies on **bubbling** for efficiency.
+
+---
+
+📌 **Summary Diagram (Text Style)**
+
+```
+Document
+  |
+HTML
+  |
+Body
+  |
+GrandParent
+  |
+Parent
+  |
+Child  <-- Target Phase
+  |
+Parent
+  |
+GrandParent
+  |
+Body
+  |
+HTML
+  |
+Document
+```
+
+* Top-down = **capturing**
+* Target = **target phase**
+* Bottom-up = **bubbling**
+
+---
+
+

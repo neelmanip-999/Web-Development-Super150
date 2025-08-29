@@ -1,0 +1,88 @@
+
+
+---
+
+# 📄 Event Propagation in JavaScript
+
+When an event occurs in the DOM (like a click), it doesn’t just trigger on the target element — it **propagates through the DOM tree** in two main phases:
+
+1. **Capturing phase (trickling)** → from **root to target**
+2. **Bubbling phase** → from **target back up to root**
+
+---
+
+## 1. Event Listeners with Capturing
+
+* The third parameter in `addEventListener` is called **`useCapture`** (default is `false`).
+* `true` → listener runs in **capturing phase**
+* `false` → listener runs in **bubbling phase**
+
+### Example:
+
+```js
+let grandParent = document.getElementById('grandParent');
+let parent = document.getElementById('parent');
+let child = document.getElementById('child');
+
+grandParent.addEventListener('click', () => {
+    console.log('grandFather clicked!!');
+}, true); // capturing
+
+parent.addEventListener('click', () => {
+    console.log('Father clicked!!');
+}, true); // capturing
+
+child.addEventListener('click', () => {
+    console.log('Child clicked!!');
+}, true); // capturing
+```
+
+* Clicking the **child element** triggers events **top-down** (grandParent → parent → child) because `true` is used.
+
+---
+
+## 2. Stopping Propagation
+
+* `event.stopPropagation()` prevents the event from **moving further** in capturing or bubbling.
+
+### Example:
+
+```js
+parent.addEventListener('click', (event) => {
+    event.stopPropagation();  // stops event from reaching grandParent or beyond
+    console.log('Father clicked!!');
+}, true);
+```
+
+* If you click the **child**, the event will **stop at parent** in the capturing phase, so `grandParent`’s listener won’t execute.
+
+---
+
+## 3. Default Behavior vs Bubbling
+
+* By default (`useCapture = false`), events **bubble from child → parent → grandParent**.
+* With `useCapture = true`, events **capture from grandParent → parent → child**.
+
+---
+
+## 4. Summary Table
+
+| Concept                        | Description                                |
+| ------------------------------ | ------------------------------------------ |
+| Capturing Phase                | Event goes **top-down** (root → target)    |
+| Bubbling Phase                 | Event goes **bottom-up** (target → root)   |
+| `addEventListener(..., true)`  | Executes in capturing phase                |
+| `addEventListener(..., false)` | Executes in bubbling phase (default)       |
+| `stopPropagation()`            | Stops further propagation in current phase |
+
+---
+
+📌 **Best Practices:**
+
+* Use **capturing** when you want the **outer elements to handle the event first**.
+* Use **bubbling** for normal behavior.
+* Use `stopPropagation()` carefully to **prevent unintended side-effects**.
+
+---
+
+

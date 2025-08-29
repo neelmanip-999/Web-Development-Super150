@@ -1,0 +1,106 @@
+---
+
+# 📄 Event Delegation in JavaScript
+
+Instead of attaching event listeners to **every child element**, you attach a **single listener to the parent element**.
+This is called **Event Delegation** and it leverages **event bubbling**.
+
+---
+
+## 1. Why Event Delegation?
+
+* Attaching listeners to each child is **inefficient** if:
+
+  * There are **many child elements**
+  * Children are **dynamically added later**
+* Event Delegation ensures:
+
+  * One listener handles **all current and future child elements**
+  * Better performance and cleaner code
+
+---
+
+## 2. Traditional Way (Not Optimal)
+
+```js
+let products = document.querySelectorAll('section figure');
+
+for(let item of products){
+    item.addEventListener('click', function(){
+        console.log(this.innerText);  // this = clicked figure
+    })
+}
+```
+
+❌ Problems:
+
+* Adds a listener to **every `<figure>`**
+* If you **dynamically add new figures**, they won’t have the listener
+
+---
+
+## 3. Optimized Way: Event Delegation
+
+* Attach **one listener to the parent** (`<section>` or `container`)
+* Use **`event.target`** to detect which child triggered the event
+
+```js
+let section = document.getElementById('container');
+
+section.addEventListener('click', function(e){
+    if(e.target.nodeName === 'FIGURE'){  // only handle clicks on figure
+        console.log(e.target.innerText);
+    }
+});
+```
+
+### How it Works:
+
+1. You click on a `<figure>` inside `#container`.
+2. Event bubbles up to the parent (`section`).
+3. Parent’s listener checks **`e.target`** to see which child was clicked.
+4. Only executes logic for `<figure>` elements.
+
+---
+
+## 4. Advantages
+
+| Advantage                | Explanation                                             |
+| ------------------------ | ------------------------------------------------------- |
+| Fewer event listeners    | Only one listener on the parent                         |
+| Handles dynamic children | Works for elements added later via `append`/`innerHTML` |
+| Better performance       | Reduces memory usage when many children exist           |
+| Cleaner code             | Less repetitive code, easier to maintain                |
+
+---
+
+## 5. Example: Dynamic Child Addition
+
+```js
+let section = document.getElementById('container');
+
+section.addEventListener('click', function(e){
+    if(e.target.nodeName === 'FIGURE'){
+        console.log('Clicked:', e.target.innerText);
+    }
+});
+
+// dynamically add a figure
+let newFig = document.createElement('figure');
+newFig.innerText = 'New Product';
+section.appendChild(newFig);
+
+// No extra listener needed — delegation works automatically!
+```
+
+---
+
+📌 **Key Notes:**
+
+* Always use **`event.target`** (the actual clicked element).
+* Use **conditions** (like `nodeName` or `classList.contains`) to filter events.
+* Leverages **bubbling phase** of events.
+
+---
+
+
