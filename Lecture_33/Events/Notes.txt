@@ -1,0 +1,133 @@
+# 📄 DOM Events in JavaScript
+
+Events allow JavaScript to **react to user interactions** like clicks, mouse movements, key presses, etc.
+
+---
+
+## 1. Inline Event Handler
+
+* Defined **directly in HTML** using attributes like `onclick`.
+* Example:
+
+```html
+<button onclick="doSomething()">Click me</button>
+
+<script>
+function doSomething(){
+    console.log('Hello inline event');
+}
+</script>
+```
+
+✅ Simple but **not recommended** for complex apps.
+
+---
+
+## 2. Using Element Properties (`onclick`, `onmouseenter`, `onmouseleave`)
+
+* Assign a **function** to an element property.
+* Only **one event per type** can be assigned this way.
+
+```js
+let btn = document.querySelector('button');
+
+// onclick
+btn.onclick = function() {
+    console.log("Hello duniya, second way");
+};
+
+// mouseenter
+btn.onmouseenter = function() {
+    btn.style.color = 'red';
+};
+
+// mouseleave
+btn.onmouseleave = function() {
+    btn.style.color = 'black';
+};
+```
+
+### ⚠️ Limitation:
+
+```js
+btn.onclick = one;
+btn.onclick = two;  // only 'two' will run, 'one' is overwritten
+```
+
+---
+
+## 3. Using `addEventListener()`
+
+* Allows **multiple event listeners** on the same element.
+* Syntax: `element.addEventListener(eventType, callback)`
+
+```js
+let btn = document.querySelector('button');
+
+function one() {
+    console.log('one');
+}
+function two() {
+    console.log('two');
+}
+
+btn.addEventListener('click', one);
+btn.addEventListener('click', two);
+// Both 'one' and 'two' will execute on click
+```
+
+---
+
+## 4. Common Events Examples
+
+### 4.1 Change Background Color on Click
+
+```js
+let btn = document.querySelector('button');
+let bodyEl = document.querySelector('body');
+
+btn.addEventListener('click', function() {
+    bodyEl.style.backgroundColor = 'plum';
+});
+```
+
+---
+
+### 4.2 Single vs Double Click
+
+* `onclick` → executes on a **single click**
+* `ondblclick` → executes on a **double click**
+
+```js
+let btn = document.querySelector('button');
+
+function meraFun() {
+    console.log("2 baar dabaya hai ek baar");
+}
+
+btn.addEventListener("dblclick", meraFun);
+```
+
+---
+
+# ✅ Summary Table
+
+| Event Type         | Triggered By         | Notes                                 |
+| ------------------ | -------------------- | ------------------------------------- |
+| `onclick`          | Single click         | Only one function per element         |
+| `ondblclick`       | Double click         | Useful for double-tap actions         |
+| `onmouseenter`     | Mouse enters element | Can be used for hover effects         |
+| `onmouseleave`     | Mouse leaves element | Can be used to reset styles           |
+| `addEventListener` | Any event            | Allows multiple listeners per element |
+
+---
+
+📌 **Best Practices:**
+
+* Use `addEventListener()` for **flexibility** and **multiple listeners**.
+* Avoid inline `onclick` for large projects.
+* Always remove unused event listeners using `removeEventListener` to prevent memory leaks.
+
+---
+
+

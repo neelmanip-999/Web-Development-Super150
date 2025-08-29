@@ -1,0 +1,88 @@
+# 📄 Handling Input Events in JavaScript
+
+The **`input` event** is triggered **every time the value of an input element changes** (typing, pasting, selecting, etc.).
+It’s more dynamic than `change`, which triggers only when focus is lost.
+
+---
+
+## 1. Event Object
+
+* Every event listener receives an **event object** as an argument (commonly `e` or `event`).
+* It contains useful info about the event, including **target element** and its **value**.
+
+### Example:
+
+```js
+let inpEl = document.querySelector('input');
+
+function funn(event) { // 'event' object is passed automatically
+    console.log(event.target.value); // prints the current input value
+}
+
+inpEl.addEventListener('input', funn);
+```
+
+---
+
+## 2. Real-time Display of Input Value
+
+* Use `input` event to **update other elements live** as user types.
+
+### Example:
+
+```html
+<input type="text" placeholder="Type something">
+<h2></h2>
+
+<script>
+let inp = document.querySelector('input');
+let h2 = document.querySelector('h2');
+
+inp.addEventListener('input', function(e){
+    h2.innerText = e.target.value; // live update
+});
+</script>
+```
+
+* Whatever you type in `<input>` immediately appears in `<h2>`.
+
+---
+
+## 3. Using a Named Function
+
+```js
+let inputEvent = document.querySelector('input');
+let h2tag = document.querySelector('h2');
+
+function updateH2(event){
+    h2tag.innerText = event.target.value;
+}
+
+inputEvent.addEventListener('input', updateH2);
+```
+
+* Works exactly the same as the inline anonymous function.
+* **Advantage:** Reusable and cleaner code.
+
+---
+
+# ✅ Key Points
+
+| Property/Method      | Description                                    |
+| -------------------- | ---------------------------------------------- |
+| `input` event        | Fires whenever the input value changes         |
+| `event.target`       | Refers to the element that triggered the event |
+| `event.target.value` | Current value of the input element             |
+| Anonymous function   | Can define inline inside `addEventListener`    |
+| Named function       | Cleaner & reusable code                        |
+
+---
+
+📌 **Best Practice:**
+
+* Use `input` for real-time feedback or dynamic content updates.
+* Use `change` if you only need the final value after focus leaves.
+* Always use `event.target.value` to get the current input value.
+
+---
+
