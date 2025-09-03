@@ -1,0 +1,39 @@
+JQuery is a library of Js it is used for DOM manipulation.
+JQuery.com --> official documentation
+# in 2021 it is most loved js library.
+
+we used compressed version --> removing indentation and spacing.
+we write the jquery code compressed version in our project.
+
+$ -> it allow variable access by which hum pura dom manipulate kar sakte hn.
+
+$, jQuery is same -> return a function f(e, t);
+
+js is a programming language it have multiple libraries jquery and reactjs is some of them and nextjs is a framework of react.
+
+let a = 10;
+a = "neelmani"
+it is error suppose we are doing numeric operation then a changes it type that is then show error.
+so to overcome this typeScript comes in the market.
+
+$ is similar to queryselectorall of DOM.
+
+jquery does not allow us to use id for more than one attribute.
+
+the property of css that is created at last have more weightage.
+
+.text() --> act as both getter and setter.
+
+# youmightnotneedjquery.com
+
+
+Library :--
+1). iske code ko aap use karte ho
+2). mai apne hisaab se cheeje karta hun and i might have multiple ways to perform a task.
+
+FrameWork :--
+1). ye aapke code ko apne uper use karta hisaab
+2). framework gives me a fixed set of steps in order to perform a task.
+
+
+

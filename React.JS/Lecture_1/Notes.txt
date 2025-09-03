@@ -51,6 +51,10 @@ H. Strong Tooling
    - Fast Refresh / Hot Reloading during development.
    - TypeScript support for safer, scalable apps.
 
+# Disadvantage :-
+1. SEO(search engine optimization) is low dur to client side rendering.
+2. Unidirectional flow of data(parent to child).
+
 3. Where React Is Commonly Used
 -------------------------------
 - Single-Page Applications (dashboards, portals)

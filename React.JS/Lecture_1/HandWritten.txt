@@ -10,6 +10,7 @@ because dom is a resourse heavy operation for eg if we have to change a 10% data
 
 when we create page from server it is slow , to create little faster we use ajax(Dom) , and if we want to create and load efficiently we uses React.
 server < Ajax(DOM) < React (faster page load).
+//React follow client side rendering so page reload nahi hota
 
 so what is special in react?
 react have a special power that is virtual dom what it does is simply comapre the two dom one of the page which was initial and one of the final page we want to create. so its only manipulate the 10% of the page which we actually wanted rather than whole dom which makes it faster.
