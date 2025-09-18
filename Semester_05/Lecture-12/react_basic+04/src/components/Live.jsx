@@ -10,7 +10,10 @@ function Live(){
             console.log("component Did Update");
         }
         if(count === 5){
-            return ()=>console.log("component Will Unmount");
+            return ()=>console.log("component Will Unmount"); //clean up function
+        }
+        if(count == 6){
+            console.log("Durgu");
         }
     }, [count])
 
